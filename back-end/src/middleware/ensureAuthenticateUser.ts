@@ -3,6 +3,8 @@ import { Request, Response, NextFunction } from 'express';
 
 import AppError from '../errors/AppError';
 
+admin.initializeApp();
+
 async function ensureAuthenticateUser(
   request: Request,
   response: Response,
