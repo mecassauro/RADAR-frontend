@@ -1,10 +1,21 @@
 import { Router } from 'express';
-import ensureAuthenticateUser from '../middleware/ensureAuthenticateUser';
+// import ensureAuthenticateUser from '../middleware/ensureAuthenticateUser';
+import CreateUserService from '../services/CreateUserService'
 
 const usersRouter = Router();
 
-usersRouter.get('/', (request, response) => {
-  return response.json({ message: 'users' });
+const createUserService = new CreateUserService ()
+
+usersRouter.post('/', async (request, response) => {
+  const { name, email, password } = request.body;
+
+  const user = await createUserService.execute({
+    name,
+    email,
+    password
+  })
+
+  return response.json(user);
 });
 
 export default usersRouter;
