@@ -2,11 +2,13 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
 
+background-color: transparent;
+
 input{
   width: 300px;
-  height: 50px;
-
-  margin: 10px 0;
+  height: 40px;
+  margin: 5px;
+  border-radius: 5px;
 
 }
 `

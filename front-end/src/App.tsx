@@ -1,16 +1,16 @@
 import React from 'react'
 
-// import Map from './pages/Map'
-import SignUp from './pages/SignUp'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from './routes'
 
 import GlobalStyles  from './styles/GlobalStyles'
 
 function App() {
   return (
-    <>
-    <SignUp />
-    <GlobalStyles />
-    </>
+    <BrowserRouter>
+      <Routes />
+      <GlobalStyles />
+    </BrowserRouter>
   );
 }
 

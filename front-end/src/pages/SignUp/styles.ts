@@ -4,41 +4,26 @@ export const Container = styled.div`
 
   display: flex;
 `
-
 export const Background = styled.div`
 
-  background-color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items:center;
-  flex:1;
-  height: 100vh;
-  img{
-    height: 500px;
-  }
-
+background-color: #ffffff;
 
 `
+
 export const Content = styled.div`
-background-color: #0276AA;
+background-color: #069E15;
 display: flex;
 justify-content: center;
 align-items: center;
-width: 50%;
+width: 55%;
 flex-direction: column;
 
-  img {
-
-    margin-bottom:89px;
-
-  }
-
-  form + img{
-
-    position: relative;
-    bottom: 15px;
-    right: -150px;
-
+  h1 {
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 55px;
   }
 
  form {
@@ -54,7 +39,31 @@ flex-direction: column;
   justify-content: center;
   align-items:center;
   flex-direction: column;
+
  }
+
+
+
+
 `
+export const Link = styled.div`
 
 
+display: flex;
+margin-top: 30px;
+color: #FFFFFF;
+
+a {
+
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-decoration:none;
+  margin-left: 10px;
+
+}
+
+
+
+`
