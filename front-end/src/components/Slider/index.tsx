@@ -5,87 +5,87 @@ import { Container } from './styles'
 const marks_ant = [
     {
         value: 0,
-        label: '01/03',
+        label: '01',
     },
     {
         value: 1,
-        label: '08/03',
+        label: '08',
     },
     {
         value: 2,
-        label: '15/03',
+        label: '15',
     },
     {
         value: 3,
-        label: '22/03',
+        label: '22',
     },
     {
         value: 4,
-        label: '29/03',
+        label: '29',
     },
     {
         value: 5,
-        label: '05/04',
+        label: '05',
     },
     {
         value: 6,
-        label: '12/04',
+        label: '12',
     },
     {
         value: 7,
-        label: '19/04',
+        label: '19',
     },
     {
         value: 8,
-        label: '26/04',
+        label: '26',
     },
     {
         value: 9,
-        label: '03/05',
+        label: '03',
     },
     {
         value: 10,
-        label: '10/05',
+        label: '10',
     },
     {
         value: 11,
-        label: '17/05',
+        label: '17',
     },
     {
         value: 12,
-        label: '24/05',
+        label: '24',
     },
     {
         value: 13,
-        label: '31/05',
+        label: '31',
     },
     {
         value: 14,
-        label: '07/06',
+        label: '07',
     },
     {
         value: 15,
-        label: '14/06',
+        label: '14',
     },
     {
         value: 16,
-        label: '21/06',
+        label: '21',
     },
     {
         value: 17,
-        label: '28/06',
+        label: '28',
     },
     {
         value: 18,
-        label: '04/07',
+        label: '04',
     },
     {
         value: 19,
-        label: '11/07',
+        label: '11',
     },
     {
         value: 20,
-        label: '15/07',
+        label: '15',
     },
 ];
 
@@ -113,7 +113,7 @@ const marks = [
 ];
 
 function valuetext(value: number) {
-    return marks_ant.findIndex((marks_ant) => marks_ant.value === value);
+    return marks_ant[marks_ant.findIndex((marks_ant) => marks_ant.value === value)].label;
 }
 
 const LinhaTempo: React.FC = () =>{

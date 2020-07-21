@@ -96,6 +96,10 @@ export const Map = styled.div`
 `
 
 export const TimeLine = styled.div`
+  width: 1280px;
+  height: 100px;
+  left: 80px;
+  top: 901px;
   z-index: 2;
 `
 

@@ -16,6 +16,7 @@ const Dashboard: React.FC = () =>{
 return (
 
     <Container>
+      
         <Header>
             <div>
               <img src={imgContent} alt="Globo terrestre" />
@@ -27,13 +28,12 @@ return (
              </div>
              <h1>Fulano de Tal</h1>
            </div>
-
       </Header>
-        
         
         <Map>
           <MapContainer />
         </Map>
+
         <TimeLine>
           <LinhaTempo/>
         </TimeLine>
