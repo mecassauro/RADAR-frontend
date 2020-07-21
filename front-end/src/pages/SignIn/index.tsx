@@ -12,20 +12,15 @@ import { FiMail,FiLock,FiLogIn } from 'react-icons/fi'
 
 import { Background, Content, Container } from './styles'
 
-import { FirebaseContext } from '../../components/Firebase'
+import { useFirebase } from '../../components/Firebase'
 
-
-const SignInPage = () => (
-
-  <FirebaseContext.Consumer>
-    {firebase => <SignIn value={"a"}/>}
-  </FirebaseContext.Consumer>
-)
 
 const SignIn: React.FC = (props) =>{
-
+  const firebase = useFirebase()!
   const handleSignButton = () => {
-
+	firebase.signIn('test@account.com','123456').catch((error:any) => {
+		console.log(error)
+	})
   }
 
   return (
@@ -54,4 +49,4 @@ const SignIn: React.FC = (props) =>{
 }
 
 
-export default SignInPage;
+export default SignIn;

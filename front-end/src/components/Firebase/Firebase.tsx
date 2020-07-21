@@ -16,11 +16,16 @@ const firebaseConfig = {
 app.initializeApp(firebaseConfig)
 const auther = app.auth()
 
-const FirebaseContext = React.createContext({})
+type FirebaseContextType = {
+	app: any;
+	signIn: any;
+	signOut: any;
+  };
+
+const FirebaseContext = React.createContext<FirebaseContextType | undefined >(undefined)
 
 
-
-const FirebaseProvider = ({children}:any) => {
+export const FirebaseProvider = ({children}:any) => {
 	const signInEmailPass = (email:any, password:any) => {
 		auther.signInWithEmailAndPassword(email, password)
 	}
@@ -28,10 +33,10 @@ const FirebaseProvider = ({children}:any) => {
 	const signOut = () => auther.signOut()
 
 	return(
-		<FirebaseContext.Provider value={app}>
+		<FirebaseContext.Provider value={{app:app, signIn:signInEmailPass, signOut:signOut}}>
 			{children}
 		</FirebaseContext.Provider>
 	)
 }
 
-export {FirebaseProvider, FirebaseContext}
+export const useFirebase = () => React.useContext(FirebaseContext)

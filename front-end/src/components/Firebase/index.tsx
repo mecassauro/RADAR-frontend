@@ -1,4 +1,4 @@
-import {FirebaseProvider, FirebaseContext} from './Firebase'
+import {FirebaseProvider, useFirebase} from './Firebase'
 
 export default FirebaseProvider
-export {FirebaseContext}
+export {useFirebase}
