@@ -16,6 +16,7 @@ const firebaseConfig = {
 app.initializeApp(firebaseConfig)
 const auther = app.auth()
 
+
 const Firebase = () => {
 	const signInEmailPass = (email:any, password:any) => {
 		auther.signInWithEmailAndPassword(email, password)

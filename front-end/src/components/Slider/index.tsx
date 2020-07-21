@@ -3,8 +3,8 @@ import Slider from '@material-ui/core/Slider';
 
 const marks = [
     {
-      value: 0,
-      label: '01/03',
+        value: 0,
+        label: '01/03',
     },
     {
         value: 1,
@@ -87,10 +87,10 @@ const marks = [
         label: '11/07',
     },
     {
-      value: 99,
-      label: '15/07',
+        value: 21,
+        label: '15/07',
     },
-  ];
+];
 
 const LinhaTempo: React.FC = () =>{
     return(

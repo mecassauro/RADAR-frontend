@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import Input from '../../components/Input'
 import Button from '../../components/Button'
@@ -12,13 +12,17 @@ import { FiMail,FiLock,FiLogIn } from 'react-icons/fi'
 
 import { Background, Content, Container } from './styles'
 
-import { withFirebase } from '../../components/Firebase'
+import { FirebaseContext } from '../../components/Firebase'
+
 
 const SignInPage = () => (
-  <SignIn />
+
+  <FirebaseContext.Consumer>
+    {firebase => <SignIn value={"a"}/>}
+  </FirebaseContext.Consumer>
 )
 
-const SignInBase: React.FC = (props) =>{
+const SignIn: React.FC = (props) =>{
 
   const handleSignButton = () => {
 
@@ -48,8 +52,6 @@ const SignInBase: React.FC = (props) =>{
     </Container>
   )
 }
-
-const SignIn = withFirebase(SignInBase)
 
 
 export default SignInPage;
