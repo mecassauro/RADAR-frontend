@@ -29,6 +29,14 @@ const SignIn: React.FC = (props) =>{
   async function temp() {
 	  const token = await firebase.auther.currentUser.getIdToken()
 	  console.log(token)
+	  const res = await fetch('http://localhost:3333/user', {
+		  method: 'GET',
+		  headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${token}`,  
+		  },
+	  })
+	  console.log(res)
   }
 
   return (
