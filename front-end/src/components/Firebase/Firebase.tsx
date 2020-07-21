@@ -16,13 +16,22 @@ const firebaseConfig = {
 app.initializeApp(firebaseConfig)
 const auther = app.auth()
 
+const FirebaseContext = React.createContext({})
 
-const Firebase = () => {
+
+
+const FirebaseProvider = ({children}:any) => {
 	const signInEmailPass = (email:any, password:any) => {
 		auther.signInWithEmailAndPassword(email, password)
 	}
 
 	const signOut = () => auther.signOut()
+
+	return(
+		<FirebaseContext.Provider value={app}>
+			{children}
+		</FirebaseContext.Provider>
+	)
 }
 
-export default Firebase;
+export {FirebaseProvider, FirebaseContext}
