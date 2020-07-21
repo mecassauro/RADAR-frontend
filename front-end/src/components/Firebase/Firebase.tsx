@@ -20,6 +20,7 @@ type FirebaseContextType = {
 	app: any;
 	signIn: any;
 	signOut: any;
+	auther: any;
   };
 
 const FirebaseContext = React.createContext<FirebaseContextType | undefined >(undefined)
@@ -27,13 +28,14 @@ const FirebaseContext = React.createContext<FirebaseContextType | undefined >(un
 
 export const FirebaseProvider = ({children}:any) => {
 	const signInEmailPass = (email:any, password:any) => {
+		console.log("ASASA")
 		auther.signInWithEmailAndPassword(email, password)
 	}
 
 	const signOut = () => auther.signOut()
 
 	return(
-		<FirebaseContext.Provider value={{app:app, signIn:signInEmailPass, signOut:signOut}}>
+		<FirebaseContext.Provider value={{app:app, signIn:signInEmailPass, signOut:signOut, auther:auther}}>
 			{children}
 		</FirebaseContext.Provider>
 	)

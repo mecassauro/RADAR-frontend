@@ -2,7 +2,7 @@ import React from 'react'
 
 import { BrowserRouter } from 'react-router-dom'
 import Routes from './routes'
-import FirebaseProvider, { FirebaseContext } from './components/Firebase'
+import FirebaseProvider from './components/Firebase'
 import GlobalStyles  from './styles/GlobalStyles'
 
 function App() {

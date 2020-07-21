@@ -18,9 +18,17 @@ import { useFirebase } from '../../components/Firebase'
 const SignIn: React.FC = (props) =>{
   const firebase = useFirebase()!
   const handleSignButton = () => {
-	firebase.signIn('test@account.com','123456').catch((error:any) => {
-		console.log(error)
-	})
+	console.log("12345")
+	firebase.signIn('test@account.com','123456')
+	//.catch((error:any) => {
+	//	console.log(error)
+	//	console.log("1234")
+	//})
+  }
+
+  async function temp() {
+	  const token = await firebase.auther.currentUser.getIdToken()
+	  console.log(token)
   }
 
   return (
@@ -35,8 +43,10 @@ const SignIn: React.FC = (props) =>{
             <h1>Entrar</h1>
             <Input name="Email" icon={FiMail} placeholder="Email" type="text"/>
             <Input name="password" icon={FiLock} placeholder="Senha" type="password"/>
-            <Button onClick={handleSignButton}>Entrar</Button>
+            
           </form>
+		  <Button onClick={handleSignButton}>Entrar</Button>
+		  <Button onClick={temp}>Temp</Button>
 
           <a href="forgot" >Esqueci minha senha</a>
           <a href="signup" >
