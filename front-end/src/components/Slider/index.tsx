@@ -1,7 +1,8 @@
 import React from 'react';
 import Slider from '@material-ui/core/Slider';
+import { Container } from './styles'
 
-const marks = [
+const marks_ant = [
     {
         value: 0,
         label: '01/03',
@@ -28,75 +29,106 @@ const marks = [
     },
     {
         value: 6,
-        label: '05/04',
-    },
-    {
-        value: 7,
         label: '12/04',
     },
     {
-        value: 8,
+        value: 7,
         label: '19/04',
     },
     {
-        value: 9,
+        value: 8,
         label: '26/04',
     },
     {
-        value: 10,
+        value: 9,
         label: '03/05',
     },
     {
-        value: 11,
+        value: 10,
         label: '10/05',
     },
     {
-        value: 12,
+        value: 11,
         label: '17/05',
     },
     {
-        value: 13,
+        value: 12,
         label: '24/05',
     },
     {
-        value: 14,
+        value: 13,
         label: '31/05',
     },
     {
-        value: 15,
+        value: 14,
         label: '07/06',
     },
     {
-        value: 16,
+        value: 15,
         label: '14/06',
     },
     {
-        value: 17,
+        value: 16,
         label: '21/06',
     },
     {
-        value: 18,
+        value: 17,
         label: '28/06',
     },
     {
-        value: 19,
+        value: 18,
         label: '04/07',
     },
     {
-        value: 20,
+        value: 19,
         label: '11/07',
     },
     {
-        value: 21,
+        value: 20,
         label: '15/07',
     },
 ];
 
+const marks = [
+    {
+        value: 0,
+        label: 'Março',
+    },
+    {
+        value: 5,
+        label: 'Abril',
+    },
+    {
+        value: 9,
+        label: 'Maio',
+    },
+    {
+        value: 14,
+        label: 'Junho',
+    },
+    {
+        value: 18,
+        label: 'Julho',
+    },
+];
+
+function valuetext(value: number) {
+    return marks_ant.findIndex((marks_ant) => marks_ant.value === value);
+}
+
 const LinhaTempo: React.FC = () =>{
     return(
-        <Slider
-            marks={marks}
-        />
+        <Container>
+            <Slider
+                defaultValue={21}
+                valueLabelFormat={valuetext}
+                min={0}
+                max={20}
+                step={1}
+                marks={marks}
+                valueLabelDisplay="on"
+            />
+        </Container>
     )
 }
 export default LinhaTempo

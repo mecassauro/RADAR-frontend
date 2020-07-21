@@ -79,6 +79,7 @@ Map{
     margin-top:7px;
     margin-left:50px;
     height: 65px;
+    z-index: 1;
   }
   h1 {
     font-family: Roboto;
@@ -91,10 +92,12 @@ Map{
 `
 
 export const Map = styled.div`
-
+  z-index: 1;
 `
 
-export const TimeLine = styled.div``
+export const TimeLine = styled.div`
+  z-index: 2;
+`
 
 
 

@@ -8,6 +8,7 @@ import { FiUser } from 'react-icons/fi'
 import { Container, Header, Map, TimeLine } from './styles'
 
 import MapContainer from '../../components/Map'
+import LinhaTempo from '../../components/Slider'
 
 const Dashboard: React.FC = () =>{
 
@@ -16,7 +17,6 @@ return (
 
     <Container>
         <Header>
-
             <div>
               <img src={imgContent} alt="Globo terrestre" />
               <h1>Radar</h1>
@@ -28,12 +28,14 @@ return (
              <h1>Fulano de Tal</h1>
            </div>
 
-        </Header>
-
-        <MapContainer />
-
+      </Header>
+        
+        
+        <Map>
+          <MapContainer />
+        </Map>
         <TimeLine>
-
+          <LinhaTempo/>
         </TimeLine>
 
     </Container>
