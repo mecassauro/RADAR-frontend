@@ -27,19 +27,14 @@ align-items: center;
 width: 55%;
 flex-direction: column;
 
-
-  form + img{
-
-    position: relative;
-    bottom: 15px;
-    right: -150px;
-
+  img {
+    margin-top:0px;
   }
 
  form {
 
   h1{
-    margin: 24px;
+    margin-bottom: 24px;
   }
 
   font-family: 'Roboto';
@@ -52,7 +47,7 @@ flex-direction: column;
  }
 
  form + a {
-   margin-top: 15px;
+   margin-top: 10px;
  }
 
  a {
@@ -63,7 +58,8 @@ flex-direction: column;
  }
 
  a + a {
-   margin-top: 30px;
+   margin-top: 20px;
+   font-weight: bold;
  }
 
 `

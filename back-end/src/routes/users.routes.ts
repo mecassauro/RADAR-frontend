@@ -6,7 +6,7 @@ const usersRouter = Router();
 
 const createUserService = new CreateUserService ()
 
-usersRouter.get('/',ensureAuthenticateUser , async (request, response) => {
+usersRouter.get('/', ensureAuthenticateUser , async (request, response) => {
   // const { name, email, password } = request.body;
 
   // const user = await createUserService.execute({

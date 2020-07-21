@@ -25,7 +25,7 @@ const SignUp: React.FC = () => {
         </form>
 
         <Link>
-          <a  href="">
+          <a  href="/">
             <FiArrowLeft/>
              Voltar</a>
         </Link>

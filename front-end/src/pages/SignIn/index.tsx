@@ -8,31 +8,48 @@ import imgDoctors from '../../assets/doctors.svg'
 import imgContent from '../../assets/mundinho.svg'
 import imgArte from '../../assets/Arte.svg'
 
-import { FiMail,FiLock } from 'react-icons/fi'
+import { FiMail,FiLock,FiLogIn } from 'react-icons/fi'
 
 import { Background, Content, Container } from './styles'
 
-const SignIn: React.FC = () =>{
+import { withFirebase } from '../../components/Firebase'
 
-return (
-  <Container>
-    <Background>
-    <img src={imgDoctors} alt="Médico e globo terrestre" />
-    </Background>
-    <Content>
-
-        <img src={imgContent} alt="Globo terrestre" />
-        <form>
-          <h1>Entrar</h1>
-          <Input name="Email" icon={FiMail} placeholder="Email" type="text"/>
-          <Input name="password" icon={FiLock} placeholder="Senha" type="password"/>
-          <Button>Entrar</Button>
-        </form>
-
-        <a href="forgot" >Esqueci minha senha</a>
-    </Content>
-  </Container>
+const SignInPage = () => (
+  <SignIn />
 )
+
+const SignInBase: React.FC = (props) =>{
+
+  const handleSignButton = () => {
+
+  }
+
+  return (
+    <Container>
+      <Background>
+      <img src={imgDoctors} alt="Médico e globo terrestre" />
+      </Background>
+      <Content>
+
+          <img src={imgContent} alt="Globo terrestre" />
+          <form>
+            <h1>Entrar</h1>
+            <Input name="Email" icon={FiMail} placeholder="Email" type="text"/>
+            <Input name="password" icon={FiLock} placeholder="Senha" type="password"/>
+            <Button onClick={handleSignButton}>Entrar</Button>
+          </form>
+
+          <a href="forgot" >Esqueci minha senha</a>
+          <a href="signup" >
+            <FiLogIn/>
+            Criar conta
+          </a>
+      </Content>
+    </Container>
+  )
 }
 
-export default SignIn;
+const SignIn = withFirebase(SignInBase)
+
+
+export default SignInPage;
