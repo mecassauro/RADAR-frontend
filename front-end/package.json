@@ -13,6 +13,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.1",
+    "@babel/plugin-transform-flow-strip-types": "7.10.4",
     "axios": "^0.19.2",
     "firebase": "^7.16.1",
     "leaflet": "^1.6.0",

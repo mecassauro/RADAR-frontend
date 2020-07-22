@@ -24,8 +24,8 @@ async function ensureAuthenticateUser(
 
   try {
     const decodedToken = await admin.auth().verifyIdToken(token);
-    console.log(decodedToken)
-    request.user = decodedToken;
+	request.user = decodedToken;
+	console.log(decodedToken)
   } catch {
     throw new AppError('Invalid Token!', 401);
   }

@@ -17,7 +17,7 @@ usersRouter.get('/', ensureAuthenticateUser , async (request, response) => {
 
   // return response.json(user);
 
-  return response.send('OK!')
+  response.send('OK!')
 
 });
 
