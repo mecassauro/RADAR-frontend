@@ -17,6 +17,7 @@ const firebaseConfig = {
 
 app.initializeApp(firebaseConfig)
 const auther = app.auth()
+const provider = new firebase.auth.GoogleAuthProvider()
 
 type FirebaseContextType = {
 	app: any;
@@ -30,13 +31,14 @@ const FirebaseContext = React.createContext<FirebaseContextType | undefined >(un
 
 
 export const FirebaseProvider = ({children}:any) => {
-	const signInEmailPass = (email:any, password:any) => {
-		console.log("ASASA")
-		auther.signInWithEmailAndPassword(email, password)
+	const signInEmailPass = async (email:any, password:any) => {
+		var k
+		k = await auther.signInWithEmailAndPassword(email, password)
+//		k = await auther.signInWithPopup(provider)
+		console.log(k)
 	}
 
 	const resetPassword = (email:any) => {
-		console.log("AAAAAAAA")
 		auther.sendPasswordResetEmail(email)
 
 	}

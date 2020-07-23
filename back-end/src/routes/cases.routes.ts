@@ -8,6 +8,7 @@ casesRouter.get('/', ensureAuthenticateUser , async (request, response) => {
   const firebase = FirebaseProvider()
   const casesRef = firebase.database()
   var allCasos:any = []
+  console.log(casesRef)
  
   await casesRef.ref('Casos').once('value', async (snapshot:any) =>{
   const casos = snapshot.val()

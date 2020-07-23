@@ -18,7 +18,6 @@ import { useFirebase } from '../../components/Firebase'
 const SignIn: React.FC = (props) =>{
   const firebase = useFirebase()!
   const handleSignButton = () => {
-	console.log("12345")
 	firebase.signIn('test@account.com','123456')
 	//.catch((error:any) => {
 	//	console.log(error)
@@ -27,11 +26,7 @@ const SignIn: React.FC = (props) =>{
   }
 
   async function temp() {
-	var d = new Date("2020-03-19").getTime()
-	var d1 = new Date ("2020-03-01").getTime()
-	var j = (Math.round(Math.abs((d - d1) / (24 * 60 * 60 * 1000)))) < (7*3)
-	console.log(j)
-	//firebase.signOut()
+	firebase.signOut()
   }
 
   return (

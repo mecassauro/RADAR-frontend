@@ -1,14 +1,7 @@
-import admin from 'firebase-admin';
+import FirebaseProvider from '../services/Firebase'
 import { Request, Response, NextFunction } from 'express';
 
 import AppError from '../errors/AppError';
-//import serviceAccount  from '../../../key/covinfo-cdf17-firebase-adminsdk-oueyv-ff29c8f456.json'
-const serviceAccount = require("../../../key/covinfo-cdf17-firebase-adminsdk-oueyv-ff29c8f456.json");
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://covinfo-cdf17.firebaseio.com"
-});
 
 async function ensureAuthenticateUser(
   request: any,
@@ -16,6 +9,7 @@ async function ensureAuthenticateUser(
   next: NextFunction,
 ): Promise<void> {
   const { authorization } = request.headers;
+  const admin = FirebaseProvider()
 
   if (!authorization) {
     throw new AppError('Token is missing', 401);

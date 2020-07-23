@@ -71,6 +71,7 @@ const MapContainer: React.FC<Props> = (props) =>{
 
 	React.useEffect(() => {
 		treatData(data, setPoints, props.slidePos)
+		console.log(points.length)
 	}, [data, props.slidePos])
 
 
