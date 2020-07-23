@@ -55,8 +55,8 @@ const MapContainer: React.FC<Props> = (props) =>{
           },
 		}).then(response => response.json()).then(data => setData(data))
 	} else {
-		if(dum === 1) {
-		  setDum(0)
+		if(dum <= 25) {
+		  setDum(dum+1)
 		}
 	}
 	}
@@ -64,8 +64,8 @@ const MapContainer: React.FC<Props> = (props) =>{
 	}, [dum])
 
 	React.useEffect(() => {
-		if(dum === 0 && !firebase.auther.currentUser) {
-			setDum(1)
+		if(dum <= 25 && !firebase.auther.currentUser) {
+			setDum(dum+1)
 		}
 	}, [dum])
 
@@ -84,7 +84,6 @@ const MapContainer: React.FC<Props> = (props) =>{
         />
 		<HeatmapLayer
 		fitBoundsOnLoad
-		fitBoundsOnUpdate
 		points={points}
 		longitudeExtractor={(m:any) => m[1]}
 		latitudeExtractor={(m:any) => m[0]}
