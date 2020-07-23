@@ -11,7 +11,7 @@ import MapContainer from '../../components/Map'
 import LinhaTempo from '../../components/Slider'
 
 const Dashboard: React.FC = () =>{
-
+  const [slider, setSlider] = React.useState(99)
 
 return (
 
@@ -31,11 +31,11 @@ return (
       </Header>
         
         <Map>
-          <MapContainer />
+          <MapContainer slidePos={slider}/>
         </Map>
 
         <TimeLine>
-          <LinhaTempo/>
+          <LinhaTempo slideSet={setSlider}/>
         </TimeLine>
 
     </Container>

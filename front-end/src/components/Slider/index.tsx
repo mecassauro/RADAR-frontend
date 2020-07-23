@@ -112,12 +112,20 @@ const marks = [
     },
 ];
 
+type Props = {
+	slideSet:any
+}
+
 function valuetext(value: number) {
     return marks_ant[marks_ant.findIndex((marks_ant) => marks_ant.value === value)].label;
 }
 
-const LinhaTempo: React.FC = () =>{
-    return(
+const LinhaTempo: React.FC<Props> = (props) =>{
+	function handleChange(event:any, newV:any) {
+		props.slideSet(newV)
+	}
+
+	return(
         <Container>
             <Slider
                 defaultValue={21}
@@ -126,7 +134,8 @@ const LinhaTempo: React.FC = () =>{
                 max={20}
                 step={1}
                 marks={marks}
-                valueLabelDisplay="on"
+				valueLabelDisplay="on"
+				onChange={handleChange}
             />
         </Container>
     )

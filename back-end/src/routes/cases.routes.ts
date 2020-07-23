@@ -14,9 +14,9 @@ casesRouter.get('/', ensureAuthenticateUser , async (request, response) => {
   for (let caso in casos) {
     allCasos.push({
     id: caso,
-    data: casos[caso].dataCadastro,
-    lat: casos[caso].latitudeString,
-    long: casos[caso].longitudeString,
+    data: casos[caso].Data2,
+    lat: casos[caso].latitude,
+    long: casos[caso].longitude,
     regiao: casos[caso].RA,
       })
 	}
