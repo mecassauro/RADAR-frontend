@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: 'https://us-central1-covinfo-cdf17.cloudfunctions.net/app',
 });
 
 export default api;

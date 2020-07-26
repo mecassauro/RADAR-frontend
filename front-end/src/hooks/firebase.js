@@ -3,7 +3,7 @@ import React, {
   useContext,
   useCallback,
   useState,
-  useEffect,
+  useEffect
 } from 'react';
 import app from 'firebase/app';
 import 'firebase/auth';
@@ -25,38 +25,31 @@ const FirebaseContext = createContext();
 
 export function FirebaseProvider({ children }) {
   const auther = app.auth();
-  const [userData, setUserData] = useState({});
-  const [haveUser, setHaveUser] = useState(async () => {
-    const user = localStorage.getItem('@Radar:haveUser');
-    return !!user;
-  });
+  const [data, setData] = useState({});
 
-  useEffect(() => {
-    const user = localStorage.getItem('@Radar:haveUser');
-    if (user) {
-      setHaveUser(true);
-      setTimeout(() => {}, 500);
+  useEffect(()=>{
+    const user = localStorage.getItem('@Radar:user');
+    const token = localStorage.getItem('@Radar:token')
+
+    if ( user && token){
+      setData({user: JSON.parse(user), token})
     }
-  }, [haveUser]);
+  },[])
 
   const signIn = useCallback(
     async ({ email, password }) => {
+
       const user = await auther.signInWithEmailAndPassword(email, password);
-      if (user) {
-        setUserData(user);
-        localStorage.setItem('@Radar:haveUser', JSON.stringify(true));
-        setHaveUser(true);
-      } else {
-        throw new Error('Authenticate Error');
-      }
+      const token = await auther.currentUser.getIdToken()
+
+      localStorage.setItem('@Radar:token', token)
+      localStorage.setItem('@Radar:user', JSON.stringify(user))
+      setData({user, token})
+
     },
     [auther],
   );
 
-  const getIdToken = useCallback(async () => {
-    const token = await auther.currentUser.getIdToken();
-    return token;
-  }, [auther.currentUser]);
 
   const resetPassword = useCallback(
     async email => {
@@ -66,10 +59,12 @@ export function FirebaseProvider({ children }) {
   );
 
   const signOut = useCallback(async () => {
-    setHaveUser(false);
-    localStorage.removeItem('@Radar:haveUser');
-    setUserData({});
     await auther.signOut();
+
+    localStorage.removeItem('@Radar:token')
+    localStorage.removeItem('@Radar:user')
+
+    setData({})
   }, [auther]);
 
   return (
@@ -78,9 +73,8 @@ export function FirebaseProvider({ children }) {
         signIn,
         resetPassword,
         signOut,
-        getIdToken,
-        user: userData,
-        haveUser,
+        user: data.user,
+        token: data.token,
         auther,
       }}
     >

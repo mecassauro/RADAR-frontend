@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Map, TileLayer } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 
 import {
   FiSkipBack,
@@ -14,7 +15,7 @@ import {
 import 'leaflet/dist/leaflet.css';
 
 import { useFirebase } from '../../hooks/firebase';
-// import api from '../../api';
+import api from '../../api';
 import imgLogo from '../../assets/logoHeader.svg';
 import {
   Container,
@@ -141,79 +142,51 @@ function valuetext(value) {
   return marks_ant[marks_ant.findIndex(mark => mark.value === value)].label;
 }
 
-function treatData(ogPoints, setNew, limit) {
-  const newState = [];
-  const d1 = new Date('2020-03-01').getTime();
-  ogPoints.forEach(point => {
-    const d = new Date(point.data).getTime();
-    if (Math.round(Math.abs((d - d1) / (24 * 60 * 60 * 1000))) < 7 * limit) {
-      newState.push([point.lat, point.long, 1]);
-    }
-  });
-  setNew(newState);
-}
 
 function Dashboard() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [lineValue, setLineValue] = useState(99);
   const [data, setData] = useState([]);
   const [time, setTime] = useState(0);
-  const [points, setPoints] = React.useState([[]]);
-  const [dum, setDum] = React.useState(0);
-  const { auther, getIdToken, signOut } = useFirebase();
+  const [points, setPoints] = useState([{}]);
+  const { token, signOut } = useFirebase();
   let slider = lineValue;
 
-  // useEffect(() => {
-  //   async function loadCases() {
-  //     const token = getIdToken();
-  //     const response = await api.get('/cases', {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     });
-  //   }
-
-  //   loadCases();
-  // }, [loading, getIdToken]);
-
   useEffect(() => {
-    async function cases() {
-      if (auther.currentUser) {
-        const token = await getIdToken();
-        await fetch(
-          'https://us-central1-covinfo-cdf17.cloudfunctions.net/app/cases',
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        )
-          .then(response => response.json())
-          .then(datas => setData(datas));
-      } else if (dum <= 35) {
-        setDum(dum + 1);
+    async function loadCases() {
+      const response = await api.get('/cases', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data =  response.data.map(({lat, long, data}) => ({lat, long, date: data}))
+      setData(data)
+      setPoints(data)
+    }
+    loadCases();
+  }, [token]);
+
+  useEffect(()=>{
+    const dayOne = new Date('2020-03-01').getTime();
+    const currentPoints = data.map(({date, long, lat} ) => {
+    const dayTwo = new Date(date).getTime()
+      if (Math.round(Math.abs((dayOne - dayTwo) / (24 * 60 * 60 * 1000))) < 7 * lineValue){
+        return {date, long, lat}
       }
-    }
-    cases();
-  }, [dum, auther.currentUser, getIdToken]);
-
-  useEffect(() => {
-    if (dum <= 35 && !auther.currentUser) {
-      setDum(dum + 1);
-    }
-  }, [dum, auther.currentUser]);
-
-  useEffect(() => {
-    treatData(data, setPoints, lineValue);
-  }, [data, lineValue]);
+    })
+    const filteredPoints = currentPoints.filter(point => {
+      return point != null
+    })
+    console.log(filteredPoints)
+    setPoints(filteredPoints)
+  }, [lineValue, data])
 
   function addValue() {
     if (!isPlaying) {
       setLineValue(slider);
       slider = slider < 30 ? slider + 1 : slider;
     }
+
   }
 
   function handlePlay() {
@@ -262,9 +235,9 @@ function Dashboard() {
         <HeatmapLayer
           fitBoundsOnLoad
           points={points}
-          longitudeExtractor={m => m[1]}
-          latitudeExtractor={m => m[0]}
-          intensityExtractor={m => parseFloat(m[2])}
+          longitudeExtractor={({long}) => long}
+          latitudeExtractor={({lat}) => lat}
+          intensityExtractor={()=> 1}
         />
       </Map>
       <TimeLine>

@@ -4,12 +4,12 @@ import { Route as RouteDOM, Redirect } from 'react-router-dom';
 import { useFirebase } from '../hooks/firebase';
 
 function Route({ isPrivate = false, component: Component, ...rest }) {
-  const { haveUser } = useFirebase();
+  const { user } = useFirebase();
   return (
     <RouteDOM
       {...rest}
       render={({ location }) => {
-        return isPrivate === !!haveUser ? (
+        return isPrivate === !!user ? (
           <Component />
         ) : (
           <Redirect
@@ -22,6 +22,6 @@ function Route({ isPrivate = false, component: Component, ...rest }) {
       }}
     />
   );
-}
+};
 
 export default Route;
