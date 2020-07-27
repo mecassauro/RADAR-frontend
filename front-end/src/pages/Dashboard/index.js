@@ -232,7 +232,7 @@ function Dashboard() {
           url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
           attribution='© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, © <a href="https://carto.com/attribution">CARTO</a>'
         />
-		<GeoJSON data={geoJsonFeat}></GeoJSON>
+		<GeoJSON fillOpacity={0} data={geoJsonFeat}></GeoJSON>
         <HeatmapLayer
           fitBoundsOnLoad
           points={points}
@@ -240,7 +240,7 @@ function Dashboard() {
           latitudeExtractor={({lat}) => lat}
           intensityExtractor={()=> 1}
         />
-		
+
       </Map>
       <TimeLine>
         <Controlls>
