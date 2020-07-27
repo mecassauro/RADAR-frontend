@@ -75,7 +75,6 @@ export function FirebaseProvider({ children }) {
         signOut,
         user: data.user,
         token: data.token,
-        auther,
       }}
     >
       {children}

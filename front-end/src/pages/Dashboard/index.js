@@ -177,7 +177,6 @@ function Dashboard() {
     const filteredPoints = currentPoints.filter(point => {
       return point != null
     })
-    console.log(filteredPoints)
     setPoints(filteredPoints)
   }, [lineValue, data])
 
@@ -212,7 +211,6 @@ function Dashboard() {
           <img src={imgLogo} alt="logo" />
           <h1>Radar</h1>
         </Logo>
-
         <UserInfo>
           <div>
             <FiUser size={20} color="#03b515" />
