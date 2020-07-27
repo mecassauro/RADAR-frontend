@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
-import { Map, TileLayer } from 'react-leaflet';
+import geoJsonFeat from '../../Material/UBStot.json'
+import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 // import CircularProgress from '@material-ui/core/CircularProgress';
 
@@ -232,6 +232,7 @@ function Dashboard() {
           url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
           attribution='© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, © <a href="https://carto.com/attribution">CARTO</a>'
         />
+		<GeoJSON data={geoJsonFeat}></GeoJSON>
         <HeatmapLayer
           fitBoundsOnLoad
           points={points}
@@ -239,6 +240,7 @@ function Dashboard() {
           latitudeExtractor={({lat}) => lat}
           intensityExtractor={()=> 1}
         />
+		
       </Map>
       <TimeLine>
         <Controlls>
