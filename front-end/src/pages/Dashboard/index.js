@@ -154,14 +154,20 @@ function Dashboard() {
 
   useEffect(() => {
     async function loadCases() {
-      const response = await api.get('/cases', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const data =  response.data.map(({lat, long, data}) => ({lat, long, date: data}))
-      setData(data)
-      setPoints(data)
+      try {
+        const response = await api.get('/cases', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data =  response.data.map(({lat, long, data}) => ({lat, long, date: data}))
+        setData(data)
+        setPoints(data)
+
+      }catch{
+        signOut()
+      }
     }
     loadCases();
   }, [token]);
@@ -177,7 +183,6 @@ function Dashboard() {
     const filteredPoints = currentPoints.filter(point => {
       return point != null
     })
-    console.log(filteredPoints)
     setPoints(filteredPoints)
   }, [lineValue, data])
 
@@ -232,7 +237,7 @@ function Dashboard() {
           url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
           attribution='© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, © <a href="https://carto.com/attribution">CARTO</a>'
         />
-		<GeoJSON fillOpacity={0} data={geoJsonFeat}></GeoJSON>
+		{/* <GeoJSON fillOpacity={0} data={geoJsonFeat}></GeoJSON>   */}
         <HeatmapLayer
           fitBoundsOnLoad
           points={points}
