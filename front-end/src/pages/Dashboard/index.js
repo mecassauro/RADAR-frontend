@@ -170,7 +170,7 @@ function Dashboard() {
       }
     }
     loadCases();
-  }, [token]);
+  }, [token, signOut]);
 
   useEffect(()=>{
     const dayOne = new Date('2020-03-01').getTime();
