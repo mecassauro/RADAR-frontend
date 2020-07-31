@@ -7,14 +7,38 @@ export const Container = styled.div`
 export const Background = styled.div`
   display: flex;
   flex: 1;
+  flex-direction: column;
   justify-content: center;
+  
   align-items: center;
 
   height: 100vh;
 
   > img {
     width: 100%;
-    max-width: 40vw;
+    max-width: 35vw;
+  }
+
+  h1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38.5714px;
+    line-height: 45px;
+
+    color: #808080
+  }
+
+  h2 {
+    margin-top: 7px;
+    margin-bottom: 87px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+
+    color: #808080;
   }
 `;
 
@@ -27,11 +51,22 @@ export const Content = styled.div`
   width: 100%;
   max-width: 700px;
   height: 100vh;
-  background-color: #069e15;
+  background-color: #E91E63;
 
   img {
     width: 30vh;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    margin-bottom: 60px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    color: #FFFFFF;
   }
 
   form {
@@ -54,6 +89,7 @@ export const Content = styled.div`
     }
   }
 `;
+
 export const CreateAccount = styled.div`
   display: flex;
   justify-content: center;
