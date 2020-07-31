@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import geoJsonFeat from '../../Material/UBStot.json'
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
-// import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import {
   FiSkipBack,
@@ -11,6 +11,7 @@ import {
   FiSkipForward,
   FiUser,
   FiLogOut,
+  FiX
 } from 'react-icons/fi';
 import 'leaflet/dist/leaflet.css';
 
@@ -211,7 +212,9 @@ function Dashboard() {
   }
 
   return (
-    <Container>
+    <>
+    { !!points ? (
+      <Container>
       <Header>
         <Logo>
           <img src={imgLogo} alt="logo" />
@@ -272,21 +275,49 @@ function Dashboard() {
       </TimeLine>
 
       <UBSInfo>
-
+        <FiX size={20} color='#CC0909' />
         <h1>UBS 02</h1>
-
-        <ul>
-          <li>Casos:  </li>
-          <li>Óbitos: </li>
-          <li>Recuperados: </li>
-          <li>Investigação</li>
-          <li>Em aberto: </li>
-          <li>Ignorados: </li>
-        </ul>
-
+        <table>
+          <tr>
+            <td>Casos</td>
+            <td>385</td>
+          </tr>
+          <tr>
+            <td>Óbitos</td>
+            <td>15%</td>
+          </tr>
+          <tr>
+            <td>Recuperados</td>
+            <td>80%</td>
+          </tr>
+          <tr>
+            <td>Investigação</td>
+            <td>1%</td>
+          </tr>
+          <tr>
+            <td>Em aberto</td>
+            <td>2%</td>
+          </tr>
+          <tr>
+            <td>Idade média</td>
+            <td>2%</td>
+          </tr>
+          <tr>
+            <td>Comorbidade</td>
+            <td>2%</td>
+          </tr>
+          <tr>
+            <td>Hospitalizados</td>
+            <td>2%</td>
+          </tr>
+        </table>
       </UBSInfo>
 
     </Container>
+    ):(
+      <CircularProgress style={{display:'flex', justifyContent:'center', alignItems:'center'}} />
+    )}
+    </>
   );
 }
 

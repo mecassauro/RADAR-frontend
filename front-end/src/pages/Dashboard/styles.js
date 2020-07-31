@@ -98,15 +98,54 @@ export const LineContainer = styled.div`
 
 export const UBSInfo = styled.div`
 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 380px;
   height: 370px;
   background-color: #fff;
   position: fixed;
   z-index: 2;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 20px;
   right: 20px ;
   top: 100px;
+
+  > svg {
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+
+  }
+
+  >h1{
+    color: #808080;
+    margin: 20px 0px;
+
+  }
+
+   table{
+    color: #808080;
+    border: 1px solid #ECECEC;
+    width: 80%;
+    border-collapse: collapse;
+
+
+    > tr td {
+      padding: 5px;
+    }
+
+    & tr:nth-child(even) {
+      background-color: #fff;
+
+    }
+    & tr:nth-child(odd) {
+      background-color: #eee;
+    }
+   }
+
 `;
 
 export const Line = withStyles({
