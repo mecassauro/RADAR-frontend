@@ -16,11 +16,10 @@ export const Background = styled.div`
 
   > img {
     width: 100%;
-    max-width: 35vw;
+    max-height: 30vw;
   }
 
   h1 {
-    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 38.5714px;
@@ -32,7 +31,6 @@ export const Background = styled.div`
   h2 {
     margin-top: 7px;
     margin-bottom: 87px;
-    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
@@ -61,7 +59,6 @@ export const Content = styled.div`
   h1 {
     margin-bottom: 60px;
 
-    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 64px;

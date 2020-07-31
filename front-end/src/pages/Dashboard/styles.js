@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
 export const Header = styled.div`
   position: fixed;
   top: 0;
@@ -18,12 +19,13 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
 export const Logo = styled.div`
   display: flex;
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #03b515;
+  background-color: #E91E63;
   border-radius: 0 0 50px 0;
 
   img {
@@ -36,6 +38,7 @@ export const Logo = styled.div`
     font-size: 26px;
   }
 `;
+
 export const UserInfo = styled.div`
   display: flex;
   align-items: center;
@@ -55,6 +58,7 @@ export const UserInfo = styled.div`
     margin-left: 30px;
   }
 `;
+
 export const TimeLine = styled.div`
   align-self: center;
   justify-self: center;
@@ -76,6 +80,7 @@ export const TimeLine = styled.div`
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 `;
+
 export const Controlls = styled.div`
   width: 100px;
   margin: 0px 30px;
@@ -85,6 +90,7 @@ export const Controlls = styled.div`
     cursor: pointer;
   }
 `;
+
 export const LineContainer = styled.div`
   height: 100%;
   width: 100%;
@@ -94,7 +100,6 @@ export const LineContainer = styled.div`
   justify-content: center;
   padding-right: 20px;
 `;
-
 
 export const UBSInfo = styled.div`
 

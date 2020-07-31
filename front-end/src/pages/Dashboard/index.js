@@ -4,6 +4,11 @@ import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
+import { useFirebase } from '../../hooks/firebase';
+import api from '../../api';
+import imgLogo from '../../assets/logo.svg';
+import 'leaflet/dist/leaflet.css';
+
 import {
   FiSkipBack,
   FiPlay,
@@ -13,11 +18,7 @@ import {
   FiLogOut,
   FiX
 } from 'react-icons/fi';
-import 'leaflet/dist/leaflet.css';
 
-import { useFirebase } from '../../hooks/firebase';
-import api from '../../api';
-import imgLogo from '../../assets/logoHeader.svg';
 import {
   Container,
   Header,
