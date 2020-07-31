@@ -26,6 +26,7 @@ import {
   Line,
   Logo,
   UserInfo,
+  UBSInfo,
 } from './styles';
 
 const marks_ant = [
@@ -142,7 +143,6 @@ function valuetext(value) {
   return marks_ant[marks_ant.findIndex(mark => mark.value === value)].label;
 }
 
-
 function Dashboard() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [lineValue, setLineValue] = useState(99);
@@ -237,7 +237,7 @@ function Dashboard() {
           url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
           attribution='© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, © <a href="https://carto.com/attribution">CARTO</a>'
         />
-		{/* <GeoJSON fillOpacity={0} data={geoJsonFeat}></GeoJSON>   */}
+	    	<GeoJSON fillOpacity={0} data={geoJsonFeat}></GeoJSON>
         <HeatmapLayer
           fitBoundsOnLoad
           points={points}
@@ -271,6 +271,22 @@ function Dashboard() {
           />
         </LineContainer>
       </TimeLine>
+
+      <UBSInfo>
+
+        <h1>UBS 02</h1>
+
+        <ul>
+          <li>Casos:  </li>
+          <li>Óbitos: </li>
+          <li>Recuperados: </li>
+          <li>Investigação</li>
+          <li>Em aberto: </li>
+          <li>Ignorados: </li>
+        </ul>
+
+      </UBSInfo>
+
     </Container>
   );
 }

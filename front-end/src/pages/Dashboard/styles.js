@@ -18,7 +18,6 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
 export const Logo = styled.div`
   display: flex;
   height: 100%;
@@ -56,7 +55,6 @@ export const UserInfo = styled.div`
     margin-left: 30px;
   }
 `;
-
 export const TimeLine = styled.div`
   align-self: center;
   justify-self: center;
@@ -95,6 +93,20 @@ export const LineContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding-right: 20px;
+`;
+
+
+export const UBSInfo = styled.div`
+
+  width: 380px;
+  height: 370px;
+  background-color: #fff;
+  position: fixed;
+  z-index: 2;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  right: 20px ;
+  top: 100px;
 `;
 
 export const Line = withStyles({
