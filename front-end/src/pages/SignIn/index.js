@@ -39,7 +39,7 @@ function SignIn() {
             type="password"
           />
           <Button type="submit">Entrar</Button>
-          <a href="forgot">Esqueci minha senha</a>
+          <a href="/resetPassword">Esqueci minha senha</a>
         </Form>
 
         <CreateAccount>

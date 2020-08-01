@@ -52,8 +52,10 @@ export function FirebaseProvider({ children }) {
 
 
   const resetPassword = useCallback(
-    async email => {
+    async ({email}) => {
+      console.log(email);
       await auther.sendPasswordResetEmail(email);
+      
     },
     [auther],
   );
