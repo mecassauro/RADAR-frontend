@@ -166,8 +166,9 @@ function Dashboard() {
         setData(data)
         setPoints(data)
 
-      }catch{
+      }catch(err){
         signOut()
+        console.log(err)
       }
     }
     loadCases();
@@ -211,6 +212,11 @@ function Dashboard() {
     setIsPlaying(false);
   }
 
+  function handleFeature ({layer}){
+    const {feature} = layer
+    console.log(feature)
+  }
+
   return (
     <>
     { !!points ? (
@@ -239,7 +245,7 @@ function Dashboard() {
           url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
           attribution='© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, © <a href="https://carto.com/attribution">CARTO</a>'
         />
-	    	<GeoJSON fillOpacity={0} data={geoJsonFeat}></GeoJSON>
+	    	<GeoJSON fillOpacity={0.1} onclick={handleFeature} data={geoJsonFeat}></GeoJSON>
         <HeatmapLayer
           fitBoundsOnLoad
           points={points}
