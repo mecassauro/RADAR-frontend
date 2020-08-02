@@ -7,36 +7,14 @@ export const Container = styled.div`
 export const Background = styled.div`
   display: flex;
   flex: 1;
-  flex-direction: column;
   justify-content: center;
-
   align-items: center;
 
   height: 100vh;
 
   > img {
     width: 100%;
-    max-height: 30vw;
-  }
-
-  h1 {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 38.5714px;
-    line-height: 45px;
-
-    color: #808080
-  }
-
-  h2 {
-    margin-top: 7px;
-    margin-bottom: 87px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 35px;
-
-    color: #808080;
+    max-width: 40vw;
   }
 `;
 
@@ -49,21 +27,11 @@ export const Content = styled.div`
   width: 100%;
   max-width: 700px;
   height: 100vh;
-  background-color: #E91E63;
+  background-color: #069e15;
 
   img {
     width: 30vh;
-    margin-bottom: 28px;
-  }
-
-  h1 {
-    margin-bottom: 60px;
-
-    font-style: normal;
-    font-weight: bold;
-    font-size: 64px;
-    line-height: 75px;
-    color: #FFFFFF;
+    margin-bottom: 40px;
   }
 
   form {
@@ -73,9 +41,7 @@ export const Content = styled.div`
     align-items: center;
     width: 400px;
 
-    font-size: 14px;
-
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 
     div + div {
       margin-top: 8px;
@@ -86,13 +52,12 @@ export const Content = styled.div`
     }
   }
 `;
-
-export const CreateAccount = styled.div`
+export const Back = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: center;y
   align-items: center;
-
   margin-bottom: 10px;
+  margin-right: 10px;
   font-weight: bold;
 
   svg {

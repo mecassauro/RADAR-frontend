@@ -20,6 +20,7 @@ function SignUp() {
     <Container>
       <Content>
         <img src={imgLogo} alt="Logo" />
+        <h1>Radar</h1>
         <Form onSubmit={handleSubmit}>
           <Input name="name" icon={FiUser} placeholder="Nome" />
           <Input name="email" icon={FiMail} placeholder="E-mail" />
@@ -39,6 +40,8 @@ function SignUp() {
       </Content>
 
       <Background>
+        <h1>Vigilância Epidemiológica | APS</h1>
+        <h2>Região de Saúde Sudoeste - DF</h2>
         <img src={imgTeam} alt="Doctors" />
       </Background>
     </Container>
