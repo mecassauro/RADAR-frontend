@@ -5,7 +5,8 @@ import Route from './Routes';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
-import Reset from '../pages/Reset';
+import Forgot from '../pages/Forgot';
+import Profile from '../pages/Profile'
 
 function Routes() {
   return (
@@ -13,7 +14,8 @@ function Routes() {
       <Route path="/" exact component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/dashboard" component={Dashboard} isPrivate />
-      <Route path="/resetPassword" component={Reset} />
+      <Route path="/profile" component={Profile} isPrivate />
+      <Route path="/forgot" component={Forgot} />
     </Switch>
   );
 }

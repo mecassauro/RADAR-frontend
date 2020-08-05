@@ -12,9 +12,9 @@ import { useFirebase } from '../../hooks/firebase';
 
 import { Container, Content, Sub, Borda, Texto1, SubCenter} from './styles';
 
-function Reset() {
+function Forgot() {
 
-  const {resetPassword} = useFirebase();
+  const {forgotPassword} = useFirebase();
 
   const [open, setOpen] = React.useState(true);
   const handleTooltipOpen = () => {
@@ -23,7 +23,7 @@ function Reset() {
 
   const handleSubmit = async ({email}) => {
     console.log(email);
-    await resetPassword({email});
+    await forgotPassword({email});
   };
 
   return (
@@ -49,10 +49,10 @@ function Reset() {
           <Link to="/" style={{color: '#0364D7', marginLeft: '25px', marginRight: '25px'}}>Voltar</Link>
           <Link to="/signup" style={{color: '#0364D7', marginLeft: '25px', marginRight: '25px'}}>Cadastrar-se</Link>
         </Sub>
-      </SubCenter>   
-      
+      </SubCenter>
+
     </Container>
   );
 }
 
-export default Reset;
+export default Forgot;

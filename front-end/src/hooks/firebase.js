@@ -50,12 +50,17 @@ export function FirebaseProvider({ children }) {
     [auther],
   );
 
-
-  const resetPassword = useCallback(
+  const forgotPassword = useCallback(
     async ({email}) => {
       console.log(email);
       await auther.sendPasswordResetEmail(email);
-      
+    },
+    [auther],
+  );
+
+  const resetPassword = useCallback(
+    async ({password}) => {
+      await auther.currentUser.updatePassword(password)
     },
     [auther],
   );
@@ -73,6 +78,7 @@ export function FirebaseProvider({ children }) {
     <FirebaseContext.Provider
       value={{
         signIn,
+        forgotPassword,
         resetPassword,
         signOut,
         user: data.user,

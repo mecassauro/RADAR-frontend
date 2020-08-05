@@ -3,7 +3,7 @@ import geoJsonFeat from '../../Material/UBStot.json'
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import { useHistory } from 'react-router-dom'
 import { useFirebase } from '../../hooks/firebase';
 import api from '../../api';
 import imgLogo from '../../assets/logo.svg';
@@ -152,8 +152,8 @@ function Dashboard() {
   const [time, setTime] = useState(0);
   const [points, setPoints] = useState([{}]);
   const { token, signOut } = useFirebase();
+  const navigation  = useHistory()
   let slider = lineValue;
-
   useEffect(() => {
     async function loadCases() {
       try {
@@ -229,7 +229,8 @@ function Dashboard() {
         </Logo>
         <UserInfo>
           <div>
-            <FiUser size={20} color="#03b515" />
+
+            <FiUser onClick={() => navigation.push('profile')}  size={20} color="#03b515" />
           </div>
           <div>
             <FiLogOut onClick={signOut} size={20} color="#03b515" />
