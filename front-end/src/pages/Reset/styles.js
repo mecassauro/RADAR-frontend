@@ -14,7 +14,7 @@ export const Background = styled.div`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background: #E5E5E5;
+  background: #FFFFFF;
 
   height: 100vh;
 
@@ -29,7 +29,7 @@ export const Content = styled.div`
   height: 500px;
   padding: 45px;
 
-  background: #F0F0F0;
+  background: #FFFFFF;
   border: 1px solid #CDCDCD;
   box-sizing: border-box;
   border-radius: 20px;
@@ -75,9 +75,7 @@ export const Content = styled.div`
       height: 40px;
       background-color: #E91E63;
 
-      font-family: Roboto;
       font-style: normal;
-      font-weight: bold;
       font-size: 14px;
       line-height: 16px;
       text-align: center;
@@ -90,35 +88,19 @@ export const Content = styled.div`
 export const Borda = styled.div`
 
   border: 1px solid #CDCDCD;
+  margin-bottom: 40px
 
 `;
 
 export const Texto1 = styled.div`
-  justify-text: certerd;
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
-  line-height: 23px;
   margin-top: 25px;
+  margin-bottom: 20px;
+  line-height: 23px;
+
   color: #494949;
-
-
-`;
-
-export const Texto2 = styled.div`
-  margin-top: 20px;
-  justify-text: certerd;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: center;
-
-  color: #000000;
-
-
 `;
 
 export const SubCenter = styled.div`
@@ -132,7 +114,6 @@ export const SubCenter = styled.div`
 export const Sub = styled.div`
 
 link {
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
