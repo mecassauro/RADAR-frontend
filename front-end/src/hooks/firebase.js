@@ -58,9 +58,10 @@ export function FirebaseProvider({ children }) {
     [auther],
   );
 
-  const resetPassword = useCallback(
-    async ({password}) => {
-      await auther.currentUser.updatePassword(password)
+  const updateProfile = useCallback(
+    async ({name, current_password, new_password}) => {
+      await auther.currentUser.updateProfile(name)
+      await auther.currentUser.updatePassword(new_password)
     },
     [auther],
   );
@@ -79,7 +80,7 @@ export function FirebaseProvider({ children }) {
       value={{
         signIn,
         forgotPassword,
-        resetPassword,
+        updateProfile,
         signOut,
         user: data.user,
         token: data.token,

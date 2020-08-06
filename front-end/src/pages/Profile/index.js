@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {FiUser, FiLock,FiMail } from 'react-icons/fi'
 import { useFirebase } from '../../hooks/firebase';
 import Input from '../../components/Input'
@@ -10,11 +10,23 @@ import { Form } from '@unform/web';
 
 function Profile (){
 
-  const {resetPassword} = useFirebase();
+  const {updateProfile} = useFirebase();
+  const [data, setData] = useState([]);
 
-  function handleSubmit (data) {
-    console.log(data)
+  useEffect(()=>{
+    const user = localStorage.getItem('@Radar:user');
+    const token = localStorage.getItem('@Radar:token')
+    console.log(user)
+    if ( user && token){
+      setData({user: JSON.parse(user), token})
+    }
+  },[])
+
+  const handleSubmit = async ({name, current_password, new_password}) => {
+    console.log(name, current_password, new_password)
+    await updateProfile({name, current_password, new_password});
   };
+
   return(
 
     <Container>
