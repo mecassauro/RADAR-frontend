@@ -12,18 +12,30 @@ function Profile (){
 
   const {updateProfile} = useFirebase();
   const [data, setData] = useState([]);
-
+  
   useEffect(()=>{
     const user = localStorage.getItem('@Radar:user');
     const token = localStorage.getItem('@Radar:token')
-    console.log(user)
+
     if ( user && token){
       setData({user: JSON.parse(user), token})
     }
   },[])
 
+  const [usuario, setUsuario] = useState([]);
+
+  useEffect(()=>{
+    if(data.user){
+        setUsuario(data.user.user)
+    }
+      },[data])
+
+  function callName (){
+    //return usuario.displayName == null ? usuario.email.split("@", 1) : usuario.displayName
+    return usuario.displayName == null ? usuario.email : usuario.displayName
+  }
+
   const handleSubmit = async ({name, current_password, new_password}) => {
-    console.log(name, current_password, new_password)
     await updateProfile({name, current_password, new_password});
   };
 
@@ -34,10 +46,11 @@ function Profile (){
         <Card>
             <Photo></Photo>
             <Text>Meu perfil</Text>
+           
             <Form onSubmit={handleSubmit} >
 
-                <Edge><Input name="name" icon={FiUser} placeholder="Nome" /></Edge>
-                <Edge><Input name="email" icon={FiMail} placeholder="Email"/></Edge>
+                <Edge><Input name="name" icon={FiUser} placeholder={callName()} /></Edge>
+                <Edge><Input name="email" icon={FiMail} placeholder={usuario.email}/></Edge>
                 <Edge><Input name="current_password" icon={FiLock} placeholder="Senha atual"/></Edge>
                 <Edge><Input name="new_password" icon={FiLock} placeholder="Nova senha"  /></Edge>
                 <Edge><Input name="confirm_password" icon={FiLock} placeholder="Confirme sua senha" /></Edge>
