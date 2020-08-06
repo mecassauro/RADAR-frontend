@@ -155,7 +155,7 @@ export const UBSInfo = styled.div`
 
 export const Line = withStyles({
   root: {
-    color: '#52af77',
+    color: '#E91E63',
     height: 8,
   },
   thumb: {

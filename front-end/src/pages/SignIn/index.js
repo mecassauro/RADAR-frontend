@@ -10,7 +10,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { useFirebase } from '../../hooks/firebase';
 
-import { Container, Background, Content, CreateAccount } from './styles';
+import { Container, Background, Content, CreateAccount, Borda} from './styles';
 
 function SignIn() {
   const { signIn } = useFirebase();

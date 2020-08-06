@@ -87,6 +87,13 @@ export const Content = styled.div`
   }
 `;
 
+export const Borda = styled.div`
+
+  border: 1px solid #CDCDCD;
+  margin-bottom: 40px
+
+`;
+
 export const CreateAccount = styled.div`
   display: flex;
   justify-content: center;

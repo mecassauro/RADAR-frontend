@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: block;
-  background: #E5E5E5;
+  background: #F6F6F6;
   align-items: center;
   height: 100%;
   width: 100%;
@@ -39,7 +39,7 @@ export const Content = styled.div`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+
   }
 
   form {
@@ -48,7 +48,7 @@ export const Content = styled.div`
     justify-content: center;
     align-items: center;
     width: 400px;
-    
+
 
     font-size: 14px;
 
@@ -57,14 +57,14 @@ export const Content = styled.div`
     div + div {
       margin-top: 8px;
     }
-    
+
     input{
-      
+
       margin-left: auto;
       margin-right: auto;
       width: 350px;
       height: 40px;
-      
+
     }
 
     button {

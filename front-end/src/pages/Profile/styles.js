@@ -3,12 +3,33 @@ import styled from 'styled-components';
 export const Container = styled.div`
 
     display: block;
-    background: #E5E5E5;
+    background: #F6F6F6;
     align-items: center;
     height: 100%;
     width: 100%;
     position: fixed;
 
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+
+        font-size: 14px;
+
+        margin-bottom: 50px;
+
+        div + div {
+          margin-top: 8px;
+    }
+
+    input{
+        margin-left: auto;
+        margin-right: auto;
+        width: 350px;
+        height: 40px;
+    }
 
     button {
         margin-left: auto;
@@ -25,6 +46,16 @@ export const Container = styled.div`
 
         color: #FFFFFF;
     }
+  }
+`;
+
+export const Edge = styled.div`
+
+    border: 1px solid #CDCDCD;
+    margin-bottom: 5px;
+
+    box-sizing: border-box;
+    border-radius: 5px;
 
 `;
 
@@ -34,7 +65,33 @@ export const Header = styled.div`
 
 export const Card = styled.div`
 
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    padding: 45px;
+
+    background: #FFFFFF;
+    border: 1px solid #CDCDCD;
+    box-sizing: border-box;
+    border-radius: 20px;
+
 `;
+
+export const Text = styled.div`
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    line-height: 23px;
+
+    color: #494949;
+`;
+
 
 export const Photo = styled.div`
 

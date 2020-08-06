@@ -229,11 +229,10 @@ function Dashboard() {
         </Logo>
         <UserInfo>
           <div>
-
-            <FiUser onClick={() => navigation.push('profile')}  size={20} color="#03b515" />
+            <FiUser onClick={() => navigation.push('profile')}  size={20} color="#E91E63" />
           </div>
           <div>
-            <FiLogOut onClick={signOut} size={20} color="#03b515" />
+            <FiLogOut onClick={signOut} size={20} color="#E91E63" />
           </div>
         </UserInfo>
       </Header>
