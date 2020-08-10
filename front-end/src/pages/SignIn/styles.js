@@ -49,7 +49,7 @@ export const Content = styled.div`
   width: 100%;
   max-width: 700px;
   height: 100vh;
-  background-color: #E91E63;
+  background-color: #8257E5 ;
 
   img {
     width: 30vh;

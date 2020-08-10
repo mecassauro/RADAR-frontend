@@ -5,8 +5,7 @@ import { Container } from './styles';
 
 function Input({ name, icon: Icon, ...rest }) {
   const inputRef = useRef(null);
-
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, defaultValue, registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -17,9 +16,9 @@ function Input({ name, icon: Icon, ...rest }) {
   }, [fieldName, registerField]);
 
   return (
-    <Container>
+    <Container  isErrored={!!error} >
       {Icon && <Icon size={20} color="#AAA" />}
-      <input ref={inputRef} defaultValue={defaultValue} {...rest} />
+      <input ref={inputRef} defaultValue={defaultValue}  {...rest} />
     </Container>
   );
 }

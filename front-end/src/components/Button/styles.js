@@ -9,6 +9,6 @@ export const Container = styled.button`
 
   font-size: 24px;
   font-weight: bold;
-  color: #03b515;
+  color: #8257E5;
   border-radius: 5px;
 `;

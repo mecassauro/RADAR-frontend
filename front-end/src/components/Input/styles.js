@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -6,11 +6,17 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   background-color: #fff;
+  border: 3px solid transparent;
   border-radius: 5px;
   padding: 0px 10px;
   svg {
     margin-right: 8px;
   }
+
+
+  ${props => props.isErrored && css`
+    border: 3px solid #c53030;
+  ` }
 
   input {
     width: 100%;

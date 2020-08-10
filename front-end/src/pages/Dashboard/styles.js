@@ -25,7 +25,7 @@ export const Logo = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #E91E63;
+  background-color: #8257E5;
   border-radius: 0 0 50px 0;
 
   img {
@@ -155,7 +155,7 @@ export const UBSInfo = styled.div`
 
 export const Line = withStyles({
   root: {
-    color: '#E91E63',
+    color: '#8257E5',
     height: 8,
   },
   thumb: {

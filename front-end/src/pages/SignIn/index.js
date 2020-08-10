@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 import { FiLogIn, FiUser, FiLock } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
+import * as Yup from 'yup'
+
+import getValidationErrors from '../../utils/getValidationError'
 
 import imgLogo from '../../assets/logo.svg';
 import imgDoctors from '../../assets/doctors.svg';
@@ -14,9 +17,36 @@ import { Container, Background, Content, CreateAccount, Borda} from './styles';
 
 function SignIn() {
   const { signIn } = useFirebase();
+  const formRef = useRef()
 
   const handleSubmit = async ({ email, password }) => {
-    await signIn({ email, password });
+
+    try{
+      if(formRef.current){
+        formRef.current.setErrors({})
+      }
+      const schema = Yup.object().shape({
+        email: Yup.string().required('E-mail obrigatório').email('Digite um e-mail válido'),
+        password: Yup.string().required('Senha obrigatória')
+      })
+
+      await schema.validate({email, password}, {
+        abortEarly: false
+      })
+      await signIn({ email, password });
+
+    }catch(err){
+      if(err instanceof Yup.ValidationError){
+        const errors = getValidationErrors(err)
+        if(formRef.current){
+          formRef.current.setErrors(errors)
+        }
+        console.log(errors)
+        return
+      }
+
+    }
+
   };
 
   return (
@@ -30,7 +60,7 @@ function SignIn() {
       <Content>
         <img src={imgLogo} alt="Logo" />
         <h1>Radar</h1>
-        <Form onSubmit={handleSubmit}>
+        <Form ref={formRef} onSubmit={handleSubmit}>
           <Input name="email" icon={FiUser} placeholder="E-mail" />
           <Input
             name="password"

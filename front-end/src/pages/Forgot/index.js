@@ -8,14 +8,15 @@ import Tooltip from '@material-ui/core/Tooltip';
 import imgLogo from '../../assets/logo.svg';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Header from '../../components/Header';
+
 import { useFirebase } from '../../hooks/firebase';
 
 import { Container, Content, Sub, Borda, Texto1, SubCenter} from './styles';
 
 function Forgot() {
 
-  const {forgotPassword} = useFirebase();
-
+  const { forgotPassword } = useFirebase();
   const [open, setOpen] = React.useState(true);
   const handleTooltipOpen = () => {
     setOpen(true);
@@ -28,6 +29,7 @@ function Forgot() {
 
   return (
     <Container>
+    <Header />
 
       <Content>
         <img src={imgLogo} alt="Logo" />
