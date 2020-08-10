@@ -147,6 +147,7 @@ function valuetext(value) {
 
 function Dashboard() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [openCard, SetOpenCard] = useState(false);
   const [lineValue, setLineValue] = useState(99);
   const [data, setData] = useState([]);
   const [time, setTime] = useState(0);
@@ -281,7 +282,8 @@ function Dashboard() {
         </LineContainer>
       </TimeLine>
 
-      <UBSInfo>
+      { openCard && (
+        <UBSInfo>
         <FiX size={20} color='#CC0909' />
         <h1>UBS 02</h1>
         <table>
@@ -319,6 +321,8 @@ function Dashboard() {
           </tr>
         </table>
       </UBSInfo>
+      ) }
+
 
     </Container>
     ):(
