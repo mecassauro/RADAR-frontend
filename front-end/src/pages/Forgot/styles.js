@@ -73,7 +73,7 @@ export const Content = styled.div`
       margin-top: 25px;
       width: 200px;
       height: 40px;
-      background-color: #E91E63;
+      background-color: #8257E5;
 
       font-style: normal;
       font-size: 14px;
