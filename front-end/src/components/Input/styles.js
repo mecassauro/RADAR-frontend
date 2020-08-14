@@ -1,4 +1,5 @@
 import styled, {css} from 'styled-components';
+import theme from '../../styles/theme'
 
 export const Container = styled.div`
   display: flex;
@@ -15,16 +16,16 @@ export const Container = styled.div`
 
 
   ${props => props.isErrored && css`
-    border: 3px solid #c53030;
+    border: 3px solid ${theme.color.error};
   ` }
 
   input {
     width: 100%;
     height: 50px;
     border: 0;
-    color: #666360;
+    color: ${theme.color.grey};
     &::placeholder {
-      color: #666360;
+      color: ${theme.color.grey};
 
       font-size: 16px;
     }

@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import geoJsonFeat from '../../Material/UBStot.json'
-import { Map, TileLayer, GeoJSON } from 'react-leaflet';
-import HeatmapLayer from 'react-leaflet-heatmap-layer';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { useHistory } from 'react-router-dom'
+
+import { Map, TileLayer, GeoJSON } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import HeatmapLayer from 'react-leaflet-heatmap-layer';
+
+import geoJsonFeat from '../../Material/UBStot.json'
+
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { useFirebase } from '../../hooks/firebase';
 import api from '../../api';
+
+
 import imgLogo from '../../assets/logo.svg';
-import 'leaflet/dist/leaflet.css';
 
 import {
   FiSkipBack,
@@ -152,21 +157,24 @@ function Dashboard() {
   const [data, setData] = useState([]);
   const [time, setTime] = useState(0);
   const [points, setPoints] = useState([{}]);
-  const { token, signOut } = useFirebase();
+  const { token, signOut, app } = useFirebase();
   const navigation  = useHistory()
   let slider = lineValue;
+
   useEffect(() => {
     async function loadCases() {
       try {
-        const response = await api.get('/cases', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
 
-        const data =  response.data.map(({lat, long, data}) => ({lat, long, date: data}))
-        setData(data)
-        setPoints(data)
+
+
+        // const response = await api.get('/cases', {
+        //   headers: {
+        //     Authorization: `Bearer ${token}`,
+        //   },
+        // });
+        // const data =  response.data.map(({lat, long, data}) => ({lat, long, date: data}))
+        // setData(data)
+        // setPoints(data)
 
       }catch(err){
         signOut()

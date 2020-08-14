@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import theme from '../../styles/theme'
+
 export const Container = styled.div`
   display: flex;
 `;
@@ -19,13 +21,13 @@ export const Background = styled.div`
     max-height: 30vw;
   }
 
+  color: ${theme.color.darkGrey};
+
   h1 {
     font-style: normal;
     font-weight: bold;
     font-size: 38.5714px;
     line-height: 45px;
-
-    color: #808080
   }
 
   h2 {
@@ -35,8 +37,6 @@ export const Background = styled.div`
     font-weight: bold;
     font-size: 30px;
     line-height: 35px;
-
-    color: #808080;
   }
 `;
 
@@ -49,7 +49,8 @@ export const Content = styled.div`
   width: 100%;
   max-width: 700px;
   height: 100vh;
-  background-color: #8257E5 ;
+
+  background-color: ${theme.color.primary};
 
   img {
     width: 30vh;
@@ -85,13 +86,6 @@ export const Content = styled.div`
       margin: 16px 0px;
     }
   }
-`;
-
-export const Borda = styled.div`
-
-  border: 1px solid #CDCDCD;
-  margin-bottom: 40px
-
 `;
 
 export const CreateAccount = styled.div`

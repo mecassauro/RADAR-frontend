@@ -19,6 +19,7 @@ const firebaseConfig = {
   appId: '1:619747978997:web:cd8ff76ec2c6ada67c9fbc',
 };
 
+
 app.initializeApp(firebaseConfig);
 
 const FirebaseContext = createContext();
@@ -84,6 +85,7 @@ export function FirebaseProvider({ children }) {
         signOut,
         user: data.user,
         token: data.token,
+        app
       }}
     >
       {children}

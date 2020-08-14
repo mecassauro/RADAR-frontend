@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 export const Container = styled.button`
   border: 0;
@@ -9,6 +10,6 @@ export const Container = styled.button`
 
   font-size: 24px;
   font-weight: bold;
-  color: #8257E5;
+  color: ${theme.color.primary};
   border-radius: 5px;
 `;

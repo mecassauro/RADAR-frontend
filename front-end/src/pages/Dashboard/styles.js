@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Slider from '@material-ui/core/Slider';
 import { withStyles } from '@material-ui/core/styles';
 
+import theme from '../../styles/theme'
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,7 +27,7 @@ export const Logo = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #8257E5;
+  background-color: ${theme.color.primary};
   border-radius: 0 0 50px 0;
 
   img {
@@ -155,7 +157,7 @@ export const UBSInfo = styled.div`
 
 export const Line = withStyles({
   root: {
-    color: '#8257E5',
+    color: theme.color.primary,
     height: 8,
   },
   thumb: {
