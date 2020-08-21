@@ -10,6 +10,7 @@ import geoJsonFeat from '../../Material/UBStot.json'
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useFirebase } from '../../hooks/firebase';
 import api from '../../api';
+import getPointsFiltered from '../../utils/getPointsFiltered'
 
 
 import imgLogo from '../../assets/logo.svg';
@@ -157,24 +158,20 @@ function Dashboard() {
   const [data, setData] = useState([]);
   const [time, setTime] = useState(0);
   const [points, setPoints] = useState([{}]);
-  const { token, signOut, app } = useFirebase();
+  const { token, signOut } = useFirebase();
   const navigation  = useHistory()
-  let slider = lineValue;
 
   useEffect(() => {
     async function loadCases() {
       try {
-
-
-
-        // const response = await api.get('/cases', {
-        //   headers: {
-        //     Authorization: `Bearer ${token}`,
-        //   },
-        // });
-        // const data =  response.data.map(({lat, long, data}) => ({lat, long, date: data}))
-        // setData(data)
-        // setPoints(data)
+        const response = await api.get('/cases', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = getPointsFiltered(response.data).map(({lat, long, data}) => ({lat, long, date: data}))
+        setData(data)
+        setPoints(data)
 
       }catch(err){
         signOut()
@@ -200,10 +197,8 @@ function Dashboard() {
 
   function addValue() {
     if (!isPlaying) {
-      setLineValue(slider);
-      slider = slider < 30 ? slider + 1 : slider;
+      setLineValue(state => state +1);
     }
-
   }
 
   function handlePlay() {
