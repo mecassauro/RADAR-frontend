@@ -9,17 +9,6 @@ export const Container = styled.div`
   position: fixed;
 `;
 
-export const Background = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background: #FFFFFF;
-
-  height: 100vh;
-
-`;
-
 export const Content = styled.div`
   margin-top: 25px;
   margin-left: auto;
@@ -85,42 +74,3 @@ export const Content = styled.div`
   }
 `;
 
-export const Borda = styled.div`
-
-  border: 1px solid #CDCDCD;
-  margin-bottom: 40px
-
-`;
-
-export const Texto1 = styled.div`
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  margin-top: 25px;
-  margin-bottom: 20px;
-  line-height: 23px;
-
-  color: #494949;
-`;
-
-export const SubCenter = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
-`;
-
-export const Sub = styled.div`
-
-link {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-
-  color: #0364D7;
-  margin-left: 25px;
-  margin-right: 25px;
-}
-`;

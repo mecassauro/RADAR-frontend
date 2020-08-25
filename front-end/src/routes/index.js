@@ -6,7 +6,8 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 import Forgot from '../pages/Forgot';
-import Profile from '../pages/Profile'
+import Profile from '../pages/Profile';
+import UBS from '../pages/UBSdata';
 
 function Routes() {
   return (
@@ -16,6 +17,7 @@ function Routes() {
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
       <Route path="/forgot" component={Forgot} />
+		<Route path="/UBS" component={UBS}/>
     </Switch>
   );
 }

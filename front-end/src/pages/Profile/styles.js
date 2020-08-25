@@ -59,24 +59,24 @@ export const Edge = styled.div`
 
 `;
 
-export const Header = styled.div`
-
-`;
-
 export const Card = styled.div`
 
     margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
+    display:flex;
+    margin: 0 auto;
     align-items: center;
+    justify-content: center;
     width: 500px;
     height: 500px;
-    padding: 45px;
+    padding: 50px;
 
     background: #FFFFFF;
     border: 1px solid #CDCDCD;
     box-sizing: border-box;
     border-radius: 20px;
+
+    img {
+    }
 
 `;
 
@@ -90,9 +90,4 @@ export const Text = styled.div`
     line-height: 23px;
 
     color: #494949;
-`;
-
-
-export const Photo = styled.div`
-
 `;

@@ -4,6 +4,7 @@ import { useFirebase } from '../../hooks/firebase';
 import Input from '../../components/Input'
 import Header from '../../components/Header'
 import Button from '../../components/Button'
+import ProfilePic from '../../assets/profile.svg';
 import {Container, Card, Photo, Text, Edge} from './styles.js'
 import { Form } from '@unform/web';
 
@@ -40,27 +41,22 @@ function Profile (){
   };
 
   return(
-
     <Container>
-        <Header></Header>
+        <Header />
         <Card>
-            <Photo></Photo>
-            <Text>Meu perfil</Text>
+            <img src={ProfilePic} alt="Foto de perfil" maxWidth="150px"/>
+            <Text>{usuario.email}</Text>
            
-            <Form onSubmit={handleSubmit} >
+            <Form  >
 
                 <Edge><Input name="name" icon={FiUser} placeholder={callName()} /></Edge>
-                <Edge><Input name="email" icon={FiMail} placeholder={usuario.email}/></Edge>
                 <Edge><Input name="current_password" icon={FiLock} placeholder="Senha atual"/></Edge>
-                <Edge><Input name="new_password" icon={FiLock} placeholder="Nova senha"  /></Edge>
-                <Edge><Input name="confirm_password" icon={FiLock} placeholder="Confirme sua senha" /></Edge>
-                <Button type="submit">Confirmar Mudanças</Button>
+                <Button type="submit">Salvar mudanças</Button>
 
             </Form>
 
         </Card>
     </Container>
-
   )
 }
 
