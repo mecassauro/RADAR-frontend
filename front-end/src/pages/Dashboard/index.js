@@ -11,6 +11,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { useFirebase } from '../../hooks/firebase';
 import api from '../../api';
 import getPointsFiltered from '../../utils/getPointsFiltered'
+import getStatistics from '../../utils/getStatistics'
 
 
 import imgLogo from '../../assets/logo.svg';
@@ -155,6 +156,7 @@ function Dashboard() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [openCard, SetOpenCard] = useState(false);
   const [lineValue, setLineValue] = useState(99);
+  const [apiData, setApiData] = useState([]);
   const [data, setData] = useState([]);
   const [time, setTime] = useState(0);
   const [points, setPoints] = useState([{}]);
@@ -169,6 +171,9 @@ function Dashboard() {
             Authorization: `Bearer ${token}`,
           },
         });
+
+        setApiData(response.data)
+
         const data = getPointsFiltered(response.data).map(({lat, long, data}) => ({lat, long, date: data}))
         setData(data)
         setPoints(data)
@@ -195,6 +200,8 @@ function Dashboard() {
     setPoints(filteredPoints)
   }, [lineValue, data])
 
+
+
   function addValue() {
     if (!isPlaying) {
       setLineValue(state => state +1);
@@ -219,7 +226,9 @@ function Dashboard() {
 
   function handleFeature ({layer}){
     const {feature} = layer
-    console.log(feature)
+
+    const usbStatistic = getStatistics(apiData,feature.properties.name )
+
   }
 
   return (

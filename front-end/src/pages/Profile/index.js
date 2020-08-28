@@ -13,7 +13,7 @@ function Profile (){
 
   const {updateProfile} = useFirebase();
   const [data, setData] = useState([]);
-  
+
   useEffect(()=>{
     const user = localStorage.getItem('@Radar:user');
     const token = localStorage.getItem('@Radar:token')
@@ -46,7 +46,7 @@ function Profile (){
         <Card>
             <img src={ProfilePic} alt="Foto de perfil" maxWidth="150px"/>
             <Text>{usuario.email}</Text>
-           
+
             <Form  >
 
                 <Edge><Input name="name" icon={FiUser} placeholder={callName()} /></Edge>
