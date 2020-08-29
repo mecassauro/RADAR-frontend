@@ -31,7 +31,7 @@ export const Container = styled.div`
         height: 40px;
     }
 
-    button {
+    button {g
         margin-left: auto;
         margin-right: auto;
         margin-top: 25px;

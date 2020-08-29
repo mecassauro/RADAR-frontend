@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container2 = styled.div`
   display: block;
   background: #F6F6F6;
   align-items: center;
@@ -9,13 +9,73 @@ export const Container = styled.div`
   position: fixed;
 `;
 
+export const Idade = styled.div`
+	height: 235px;
+	width: 380px;
+	background: #FAFAFA;
+	border: 1px solid #CDCDCD;
+	margin-top: 25px;
+  	margin-left: 10px;
+  	margin-right: 10px;
+  	margin-bottom: 10px;
+
+`;
+
+export const Casos = styled.div`
+	height: 430px;
+	width: 820px;
+	background: #FAFAFA;
+	border: 1px solid #CDCDCD;
+	margin-top: 25px;
+  	margin-left: 10px;
+  	margin-right: 10px;
+  	margin-bottom: 10px;
+
+`;
+
+export const Comorbidades = styled.div`
+	height: 340px;
+	width: 380px;
+	background: #FAFAFA;
+	border: 1px solid #CDCDCD;
+	margin-top: 25px;
+  	margin-left: 10px;
+  	margin-right: 10px;
+  	margin-bottom: 10px;
+`;
+
+export const Profissao = styled.div`
+	height: 340px;
+	width: 380px;
+	background: #FAFAFA;
+	border: 1px solid #CDCDCD;
+	margin-top: 25px;
+  	margin-left: 10px;
+  	margin-right: 10px;
+  	margin-bottom: 10px;
+`;
+
+export const Sexes = styled.div`
+	height: 235px;
+	width: 380px;
+	background: #FAFAFA;
+	border: 1px solid #CDCDCD;
+	
+	margin-top: 25px;
+  	margin-left: 10px;
+  	margin-right: 10px;
+  	margin-bottom: 10px;
+`;
+
+
 export const Content = styled.div`
   margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: auto;
   align-items: center;
-  width: 500px;
-  height: 480px;
+	display: flex;
+  
   padding: 45px;
 
   background: #FFFFFF;
@@ -73,4 +133,6 @@ export const Content = styled.div`
     }
   }
 `;
+
+
 

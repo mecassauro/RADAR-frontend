@@ -251,7 +251,7 @@ function Dashboard() {
       </Header>
       <Map
         zoomControl={false}
-        center={[-15.8383, -47.9546]}
+        center={[-15.8690, -48.0933]}
         zoom={12}
         style={{ height: '100vh', zIndex: 1 }}
       >
