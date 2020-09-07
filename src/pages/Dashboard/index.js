@@ -1,4 +1,8 @@
+<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
 import React, { useState, useEffect } from 'react';
+=======
+import React, { useState, useEffect, useMemo } from 'react';
+>>>>>>> master:src/pages/Dashboard/index.js
 import { useHistory } from 'react-router-dom'
 
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
@@ -154,10 +158,15 @@ function valuetext(value) {
 
 function Dashboard() {
   const [isPlaying, setIsPlaying] = useState(false);
+<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
   const [openCard, SetOpenCard] = useState(false);
+=======
+  const [openCard, setOpenCard] = useState(false);
+>>>>>>> master:src/pages/Dashboard/index.js
   const [lineValue, setLineValue] = useState(99);
   const [apiData, setApiData] = useState([]);
   const [data, setData] = useState([]);
+  const [USBData, setUBSdata] = useState({})
   const [time, setTime] = useState(0);
   const [points, setPoints] = useState([{}]);
   const { token, signOut } = useFirebase();
@@ -226,11 +235,31 @@ function Dashboard() {
 
   function handleFeature ({layer}){
     const {feature} = layer
+<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
 
     const usbStatistic = getStatistics(apiData,feature.properties.name )
 
   }
 
+=======
+    const usbStatistic = getStatistics(apiData,feature.properties.name )
+    setUBSdata(usbStatistic)
+    setOpenCard(true)
+  }
+
+  const currentUbS = useMemo(()=>{
+    console.log(USBData)
+    const obito = Math.round((USBData.obito * 100) / USBData.casos)
+    const comorb = Math.round((USBData.comorb * 100) / USBData.casos)
+
+    return {
+      total : USBData.casos,
+      obito,
+      comorb
+    }
+  },[USBData])
+
+>>>>>>> master:src/pages/Dashboard/index.js
   return (
     <>
     { !!points ? (
@@ -296,11 +325,16 @@ function Dashboard() {
 
       { openCard && (
         <UBSInfo>
+<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
         <FiX size={20} color='#CC0909' />
+=======
+        <FiX onClick={() => setOpenCard(false)} size={20} color='#CC0909' />
+>>>>>>> master:src/pages/Dashboard/index.js
         <h1>UBS 02</h1>
         <table>
           <tr>
             <td>Casos</td>
+<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
             <td>385</td>
           </tr>
           <tr>
@@ -310,6 +344,17 @@ function Dashboard() {
           <tr>
             <td>Recuperados</td>
             <td>80%</td>
+=======
+            <td>{currentUbS.total}</td>
+          </tr>
+          <tr>
+            <td>Óbitos</td>
+            <td>{currentUbS.obito}%</td>
+          </tr>
+          <tr>
+            <td>Recuperados</td>
+            <td>{currentUbS.obito}%</td>
+>>>>>>> master:src/pages/Dashboard/index.js
           </tr>
           <tr>
             <td>Investigação</td>
@@ -325,7 +370,11 @@ function Dashboard() {
           </tr>
           <tr>
             <td>Comorbidade</td>
+<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
             <td>2%</td>
+=======
+            <td>{currentUbS.comorb}%</td>
+>>>>>>> master:src/pages/Dashboard/index.js
           </tr>
           <tr>
             <td>Hospitalizados</td>
