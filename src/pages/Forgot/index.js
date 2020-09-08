@@ -12,47 +12,65 @@ import Header from '../../components/Header';
 
 import { useFirebase } from '../../hooks/firebase';
 
-import { Container, Content, Sub, Borda, Texto1, SubCenter} from './styles';
+import { Container, Content, Sub, Borda, Texto1, SubCenter } from './styles';
 
 function Forgot() {
-
   const { forgotPassword } = useFirebase();
   const [open, setOpen] = React.useState(true);
   const handleTooltipOpen = () => {
     setOpen(true);
   };
 
-  const handleSubmit = async ({email}) => {
+  const handleSubmit = async ({ email }) => {
     console.log(email);
-    await forgotPassword({email});
+    await forgotPassword({ email });
   };
 
   return (
     <Container>
-    <Header />
+      <Header />
 
       <Content>
         <img src={imgLogo} alt="Logo" />
         <Form onSubmit={handleSubmit}>
           <Texto1> Redefina sua senha:</Texto1>
           <Borda>
-          <Input name="email" icon={FiMail} placeholder="E-mail" />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
           </Borda>
           <Tooltip
             title="E-mail enviado. Cheque sua caixa de entrada"
             open={open}
           >
-            <Button type="submit" onClick={handleTooltipOpen} >Enviar link</Button>
-          </Tooltip >
+            <Button type="submit" onClick={handleTooltipOpen}>
+              Enviar link
+            </Button>
+          </Tooltip>
         </Form>
       </Content>
       <SubCenter>
         <Sub>
-          <Link to="/" style={{color: '#0364D7', marginLeft: '25px', marginRight: '25px'}}>Voltar</Link>
-          <Link to="/signup" style={{color: '#0364D7', marginLeft: '25px', marginRight: '25px'}}>Cadastrar-se</Link>
+          <Link
+            to="/"
+            style={{
+              color: '#0364D7',
+              marginLeft: '25px',
+              marginRight: '25px',
+            }}
+          >
+            Voltar
+          </Link>
+          <Link
+            to="/signup"
+            style={{
+              color: '#0364D7',
+              marginLeft: '25px',
+              marginRight: '25px',
+            }}
+          >
+            Cadastrar-se
+          </Link>
         </Sub>
       </SubCenter>
-
     </Container>
   );
 }

@@ -1,25 +1,11 @@
-<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
-import React, { useState, useEffect } from 'react';
-=======
 import React, { useState, useEffect, useMemo } from 'react';
->>>>>>> master:src/pages/Dashboard/index.js
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
 
-import geoJsonFeat from '../../Material/UBStot.json'
-
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { useFirebase } from '../../hooks/firebase';
-import api from '../../api';
-import getPointsFiltered from '../../utils/getPointsFiltered'
-import getStatistics from '../../utils/getStatistics'
-
-
-import imgLogo from '../../assets/logo.svg';
-
 import {
   FiSkipBack,
   FiPlay,
@@ -27,8 +13,16 @@ import {
   FiSkipForward,
   FiUser,
   FiLogOut,
-  FiX
+  FiX,
 } from 'react-icons/fi';
+import geoJsonFeat from '../../Material/UBStot.json';
+
+import { useFirebase } from '../../hooks/firebase';
+import api from '../../api';
+import getPointsFiltered from '../../utils/getPointsFiltered';
+import getStatistics from '../../utils/getStatistics';
+
+import imgLogo from '../../assets/logo.svg';
 
 import {
   Container,
@@ -158,19 +152,15 @@ function valuetext(value) {
 
 function Dashboard() {
   const [isPlaying, setIsPlaying] = useState(false);
-<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
-  const [openCard, SetOpenCard] = useState(false);
-=======
   const [openCard, setOpenCard] = useState(false);
->>>>>>> master:src/pages/Dashboard/index.js
   const [lineValue, setLineValue] = useState(99);
   const [apiData, setApiData] = useState([]);
   const [data, setData] = useState([]);
-  const [USBData, setUBSdata] = useState({})
+  const [USBData, setUBSdata] = useState({});
   const [time, setTime] = useState(0);
   const [points, setPoints] = useState([{}]);
   const { token, signOut } = useFirebase();
-  const navigation  = useHistory()
+  const navigation = useHistory();
 
   useEffect(() => {
     async function loadCases() {
@@ -181,39 +171,41 @@ function Dashboard() {
           },
         });
 
-        setApiData(response.data)
+        setApiData(response.data);
 
-        const data = getPointsFiltered(response.data).map(({lat, long, data}) => ({lat, long, date: data}))
-        setData(data)
-        setPoints(data)
-
-      }catch(err){
-        signOut()
-        console.log(err)
+        const data = getPointsFiltered(
+          response.data,
+        ).map(({ lat, long, data }) => ({ lat, long, date: data }));
+        setData(data);
+        setPoints(data);
+      } catch (err) {
+        signOut();
+        console.log(err);
       }
     }
     loadCases();
   }, [token, signOut]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const dayOne = new Date('2020-03-01').getTime();
-    const currentPoints = data.map(({date, long, lat} ) => {
-    const dayTwo = new Date(date).getTime()
-      if (Math.round(Math.abs((dayOne - dayTwo) / (24 * 60 * 60 * 1000))) < 7 * lineValue){
-        return {date, long, lat}
+    const currentPoints = data.map(({ date, long, lat }) => {
+      const dayTwo = new Date(date).getTime();
+      if (
+        Math.round(Math.abs((dayOne - dayTwo) / (24 * 60 * 60 * 1000))) <
+        7 * lineValue
+      ) {
+        return { date, long, lat };
       }
-    })
+    });
     const filteredPoints = currentPoints.filter(point => {
-      return point != null
-    })
-    setPoints(filteredPoints)
-  }, [lineValue, data])
-
-
+      return point != null;
+    });
+    setPoints(filteredPoints);
+  }, [lineValue, data]);
 
   function addValue() {
     if (!isPlaying) {
-      setLineValue(state => state +1);
+      setLineValue(state => state + 1);
     }
   }
 
@@ -233,162 +225,149 @@ function Dashboard() {
     setIsPlaying(false);
   }
 
-  function handleFeature ({layer}){
-    const {feature} = layer
-<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
-
-    const usbStatistic = getStatistics(apiData,feature.properties.name )
-
+  function handleFeature({ layer }) {
+    const { feature } = layer;
+    const usbStatistic = getStatistics(apiData, feature.properties.name);
+    setUBSdata(usbStatistic);
+    setOpenCard(true);
   }
 
-=======
-    const usbStatistic = getStatistics(apiData,feature.properties.name )
-    setUBSdata(usbStatistic)
-    setOpenCard(true)
-  }
-
-  const currentUbS = useMemo(()=>{
-    console.log(USBData)
-    const obito = Math.round((USBData.obito * 100) / USBData.casos)
-    const comorb = Math.round((USBData.comorb * 100) / USBData.casos)
+  const currentUbS = useMemo(() => {
+    console.log(USBData);
+    const obito = Math.round((USBData.obito * 100) / USBData.casos);
+    const comorb = Math.round((USBData.comorb * 100) / USBData.casos);
 
     return {
-      total : USBData.casos,
+      total: USBData.casos,
       obito,
-      comorb
-    }
-  },[USBData])
+      comorb,
+    };
+  }, [USBData]);
 
->>>>>>> master:src/pages/Dashboard/index.js
   return (
     <>
-    { !!points ? (
-      <Container>
-      <Header>
-        <Logo>
-          <img src={imgLogo} alt="logo" />
-          <h1>Radar</h1>
-        </Logo>
-        <UserInfo>
-          <div>
-            <FiUser onClick={() => navigation.push('profile')}  size={20} color="#8257E5" />
-          </div>
-          <div>
-            <FiLogOut onClick={signOut} size={20} color="#8257E5" />
-          </div>
-        </UserInfo>
-      </Header>
-      <Map
-        zoomControl={false}
-        center={[-15.8690, -48.0933]}
-        zoom={12}
-        style={{ height: '100vh', zIndex: 1 }}
-      >
-        <TileLayer
-          url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
-          attribution='© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, © <a href="https://carto.com/attribution">CARTO</a>'
-        />
-	    	<GeoJSON fillOpacity={0.1} onclick={handleFeature} data={geoJsonFeat}></GeoJSON>
-        <HeatmapLayer
-          fitBoundsOnLoad
-          points={points}
-          longitudeExtractor={({long}) => long}
-          latitudeExtractor={({lat}) => lat}
-          intensityExtractor={()=> 1}
-        />
+      {points ? (
+        <Container>
+          <Header>
+            <Logo>
+              <img src={imgLogo} alt="logo" />
+              <h1>Radar</h1>
+            </Logo>
+            <UserInfo>
+              <div>
+                <FiUser
+                  onClick={() => navigation.push('profile')}
+                  size={20}
+                  color="#8257E5"
+                />
+              </div>
+              <div>
+                <FiLogOut onClick={signOut} size={20} color="#8257E5" />
+              </div>
+            </UserInfo>
+          </Header>
+          <Map
+            zoomControl={false}
+            center={[-15.869, -48.0933]}
+            zoom={12}
+            style={{ height: '100vh', zIndex: 1 }}
+          >
+            <TileLayer
+              url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
+              attribution='© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, © <a href="https://carto.com/attribution">CARTO</a>'
+            />
+            <GeoJSON
+              fillOpacity={0.1}
+              onclick={handleFeature}
+              data={geoJsonFeat}
+            />
+            <HeatmapLayer
+              fitBoundsOnLoad
+              points={points}
+              longitudeExtractor={({ long }) => long}
+              latitudeExtractor={({ lat }) => lat}
+              intensityExtractor={() => 1}
+            />
+          </Map>
+          <TimeLine>
+            <Controlls>
+              <FiSkipBack size={24} color="#9E9E9E" />
+              {isPlaying ? (
+                <FiPause onClick={handlePlay} size={24} color="#9E9E9E" />
+              ) : (
+                <FiPlay onClick={handlePlay} size={24} color="#9E9E9E" />
+              )}
+              <FiSkipForward size={24} color="#9E9E9E" />
+            </Controlls>
+            <LineContainer>
+              <Line
+                value={lineValue}
+                valueLabelFormat={valuetext}
+                min={0}
+                max={20}
+                step={1}
+                marks={marks}
+                valueLabelDisplay="on"
+                aria-label="pretto slider"
+                onChange={handleLine}
+              />
+            </LineContainer>
+          </TimeLine>
 
-      </Map>
-      <TimeLine>
-        <Controlls>
-          <FiSkipBack size={24} color="#9E9E9E" />
-          {isPlaying ? (
-            <FiPause onClick={handlePlay} size={24} color="#9E9E9E" />
-          ) : (
-            <FiPlay onClick={handlePlay} size={24} color="#9E9E9E" />
+          {openCard && (
+            <UBSInfo>
+              <FiX
+                onClick={() => setOpenCard(false)}
+                size={20}
+                color="#CC0909"
+              />
+              <h1>UBS 02</h1>
+              <table>
+                <tr>
+                  <td>Casos</td>
+                  <td>{currentUbS.total}</td>
+                </tr>
+                <tr>
+                  <td>Óbitos</td>
+                  <td>{currentUbS.obito}%</td>
+                </tr>
+                <tr>
+                  <td>Recuperados</td>
+                  <td>{currentUbS.obito}%</td>
+                </tr>
+                <tr>
+                  <td>Investigação</td>
+                  <td>1%</td>
+                </tr>
+                <tr>
+                  <td>Em aberto</td>
+                  <td>2%</td>
+                </tr>
+                <tr>
+                  <td>Idade média</td>
+                  <td>2%</td>
+                </tr>
+                <tr>
+                  <td>Comorbidade</td>
+                  <td>{currentUbS.comorb}%</td>
+                </tr>
+                <tr>
+                  <td>Hospitalizados</td>
+                  <td>2%</td>
+                </tr>
+              </table>
+            </UBSInfo>
           )}
-          <FiSkipForward size={24} color="#9E9E9E" />
-        </Controlls>
-        <LineContainer>
-          <Line
-            value={lineValue}
-            valueLabelFormat={valuetext}
-            min={0}
-            max={20}
-            step={1}
-            marks={marks}
-            valueLabelDisplay="on"
-            aria-label="pretto slider"
-            onChange={handleLine}
-          />
-        </LineContainer>
-      </TimeLine>
-
-      { openCard && (
-        <UBSInfo>
-<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
-        <FiX size={20} color='#CC0909' />
-=======
-        <FiX onClick={() => setOpenCard(false)} size={20} color='#CC0909' />
->>>>>>> master:src/pages/Dashboard/index.js
-        <h1>UBS 02</h1>
-        <table>
-          <tr>
-            <td>Casos</td>
-<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
-            <td>385</td>
-          </tr>
-          <tr>
-            <td>Óbitos</td>
-            <td>15%</td>
-          </tr>
-          <tr>
-            <td>Recuperados</td>
-            <td>80%</td>
-=======
-            <td>{currentUbS.total}</td>
-          </tr>
-          <tr>
-            <td>Óbitos</td>
-            <td>{currentUbS.obito}%</td>
-          </tr>
-          <tr>
-            <td>Recuperados</td>
-            <td>{currentUbS.obito}%</td>
->>>>>>> master:src/pages/Dashboard/index.js
-          </tr>
-          <tr>
-            <td>Investigação</td>
-            <td>1%</td>
-          </tr>
-          <tr>
-            <td>Em aberto</td>
-            <td>2%</td>
-          </tr>
-          <tr>
-            <td>Idade média</td>
-            <td>2%</td>
-          </tr>
-          <tr>
-            <td>Comorbidade</td>
-<<<<<<< HEAD:front-end/src/pages/Dashboard/index.js
-            <td>2%</td>
-=======
-            <td>{currentUbS.comorb}%</td>
->>>>>>> master:src/pages/Dashboard/index.js
-          </tr>
-          <tr>
-            <td>Hospitalizados</td>
-            <td>2%</td>
-          </tr>
-        </table>
-      </UBSInfo>
-      ) }
-
-
-    </Container>
-    ):(
-      <CircularProgress style={{display:'flex', justifyContent:'center', alignItems:'center'}} />
-    )}
+        </Container>
+      ) : (
+        <CircularProgress
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        />
+      )}
     </>
   );
 }
