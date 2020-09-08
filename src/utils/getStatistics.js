@@ -1,18 +1,9 @@
-function getStatistics (data, ubs ){
-  const statistics = []
-
-  const [ name, number, city ] = ubs.split(' ')
-
-  console.log(data[city])
-
-  data.forEach(item => {
-      for (const [ , value] of Object.entries(item)){
-        Object.values(value).map(({casos, obitos, cura, comorb}) => {
-          statistics.push({casos, obitos, cura, comorb})
-        })
-      }
-  })
-  return statistics
+function getStatistics(data, ubs) {
+  const city = ubs.split(' ')[ubs.split(' ').length - 1];
+  const [currentCity] = data.filter(item => Object.keys(item) == city);
+  const [currentUBS] = Object.values(currentCity);
+  const { casos, comorb, obito } = currentUBS[ubs];
+  return { casos, comorb, obito };
 }
 
 export default getStatistics;
