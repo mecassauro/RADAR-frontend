@@ -17,11 +17,7 @@ function Routes() {
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
       <Route path="/forgot" component={Forgot} />
-<<<<<<< HEAD:front-end/src/routes/index.js
-		  <Route path="/UBS" component={UBS} isPrivate />
-=======
 		<Route path="/UBS" component={UBS}/>
->>>>>>> master:src/routes/index.js
     </Switch>
   );
 }

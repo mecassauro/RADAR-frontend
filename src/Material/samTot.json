@@ -95,7 +95,7 @@
       },
       "properties": {
         "osm_id": "1",
-        "name": "UBS 01 SAM"
+        "UBS": "UBS 01 SAM"
       }
     },
     {
@@ -145,7 +145,7 @@
       },
       "properties": {
         "osm_id": "2",
-        "name": "UBS 02 SAM"
+        "UBS": "UBS 02 SAM"
       }
     },
     {
@@ -219,7 +219,7 @@
       },
       "properties": {
         "osm_id": "",
-        "name": "UBS 03 SAM"
+        "UBS": "UBS 03 SAM"
       }
     },
     {
@@ -313,7 +313,7 @@
       },
       "properties": {
         "osm_id": "4",
-        "name": "UBS 04 SAM"
+        "UBS": "UBS 04 SAM"
       }
     },
     {
@@ -359,7 +359,7 @@
       },
       "properties": {
         "osm_id": "5",
-        "name": "UBS 05 SAM"
+        "UBS": "UBS 05 SAM"
       }
     },
     {
@@ -473,7 +473,7 @@
       },
       "properties": {
         "osm_id": "6",
-        "name": "UBS 06 SAM"
+        "UBS": "UBS 06 SAM"
       }
     },
     {
@@ -611,7 +611,7 @@
       },
       "properties": {
         "osm_id": "7",
-        "name": "UBS 07 SAM"
+        "UBS": "UBS 07 SAM"
       }
     },
     {
@@ -713,7 +713,7 @@
       },
       "properties": {
         "osm_id": "8",
-        "name": "UBS 08 SAM"
+        "UBS": "UBS 08 SAM"
       }
     },
     {
@@ -783,7 +783,7 @@
       },
       "properties": {
         "osm_id": "9",
-        "name": "UBS 09 SAM"
+        "UBS": "UBS 09 SAM"
       }
     },
     {
@@ -849,7 +849,7 @@
       },
       "properties": {
         "osm_id": "10",
-        "name": "UBS 10 SAM"
+        "UBS": "UBS 10 SAM"
       }
     },
     {
@@ -971,7 +971,7 @@
       },
       "properties": {
         "osm_id": "12",
-        "name": "UBS 12 SAM"
+        "UBS": "UBS 12 SAM"
       }
     },
     {
@@ -1077,7 +1077,7 @@
       },
       "properties": {
         "osm_id": "13",
-        "name": "UBS 13 SAM"
+        "UBS": "UBS 13 SAM"
       }
     }
   ]
