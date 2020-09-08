@@ -159,7 +159,7 @@ function Dashboard() {
   const [lineValue, setLineValue] = useState(99);
   const [apiData, setApiData] = useState([]);
   const [data, setData] = useState([]);
-  const [USBData, setUBSdata] = useState({})
+  const [UBSData, setUBSData] = useState({})
   const [time, setTime] = useState(0);
   const [points, setPoints] = useState([{}]);
   const { token, signOut } = useFirebase();
@@ -228,22 +228,23 @@ function Dashboard() {
 
   function handleFeature ({layer}){
     const {feature} = layer
-    const usbStatistic = getStatistics(apiData,feature.properties.UBS)
-    setUBSdata(usbStatistic)
+    const ubsStatistic = getStatistics(apiData,feature.properties.UBS)
+    setUBSData(ubsStatistic)
     setOpenCard(true)
   }
 
   const currentUbS = useMemo(()=>{
-    //console.log(USBData)
-    const obito = Math.round((USBData.obito * 100) / USBData.casos)
-    const comorb = Math.round((USBData.comorb * 100) / USBData.casos)
+    //console.log(UBSData)
+    const obito = Math.round((UBSData.obito * 100) / UBSData.casos)
+	const comorb = Math.round((UBSData.comorb * 100) / UBSData.casos)
 
     return {
-      total : USBData.casos,
+	  nome : UBSData.ubs,
+      total : UBSData.casos,
       obito,
       comorb
     }
-  },[USBData])
+  },[UBSData])
 
   return (
     <>
@@ -312,7 +313,7 @@ function Dashboard() {
       { openCard && (
         <UBSInfo>
         <FiX onClick={() => setOpenCard(false)} size={20} color='#CC0909' />
-        <h1>UBS 02</h1>
+        <h1>{currentUbS.nome}</h1>
         <table>
           <tr>
             <td>Casos</td>
