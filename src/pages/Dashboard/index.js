@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import { Map, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import HeatmapLayer from 'react-leaflet-heatmap-layer';
-
 import CircularProgress from '@material-ui/core/CircularProgress';
 import {
   FiSkipBack,
@@ -15,7 +13,8 @@ import {
   FiLogOut,
   FiX,
 } from 'react-icons/fi';
-import geoJsonFeat from '../../Material/UBStot.json';
+import geoJsonSam from '../../Material/samTot.json';
+import geoJsonRec from '../../Material/emasTot.json';
 
 import { useFirebase } from '../../hooks/firebase';
 import api from '../../api';
@@ -227,13 +226,13 @@ function Dashboard() {
 
   function handleFeature({ layer }) {
     const { feature } = layer;
-    const usbStatistic = getStatistics(apiData, feature.properties.name);
+    const usbStatistic = getStatistics(apiData, feature.properties.UBS);
     setUBSdata(usbStatistic);
     setOpenCard(true);
   }
 
   const currentUbS = useMemo(() => {
-    console.log(USBData);
+    // console.log(USBData)
     const obito = Math.round((USBData.obito * 100) / USBData.casos);
     const comorb = Math.round((USBData.comorb * 100) / USBData.casos);
 
@@ -279,7 +278,12 @@ function Dashboard() {
             <GeoJSON
               fillOpacity={0.1}
               onclick={handleFeature}
-              data={geoJsonFeat}
+              data={geoJsonSam}
+            />
+            <GeoJSON
+              fillOpacity={0.1}
+              onclick={handleFeature}
+              data={geoJsonRec}
             />
             <HeatmapLayer
               fitBoundsOnLoad
