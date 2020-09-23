@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Slider from '@material-ui/core/Slider';
 import { withStyles } from '@material-ui/core/styles';
 
-import theme from '../../styles/theme'
+import theme from '../../styles/theme';
 
 export const Container = styled.div`
   display: flex;
@@ -83,7 +83,7 @@ export const TimeLine = styled.div`
   border-radius: 10px;
 `;
 
-export const Controlls = styled.div`
+export const Controllers = styled.div`
   width: 100px;
   margin: 0px 30px;
   display: flex;
@@ -104,7 +104,6 @@ export const LineContainer = styled.div`
 `;
 
 export const UBSInfo = styled.div`
-
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -115,30 +114,26 @@ export const UBSInfo = styled.div`
   z-index: 2;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  right: 20px ;
+  right: 20px;
   top: 100px;
 
   > svg {
-
     position: absolute;
     top: 15px;
     right: 15px;
     cursor: pointer;
-
   }
 
-  >h1{
+  > h1 {
     color: #808080;
     margin: 20px 0px;
-
   }
 
-   table{
+  table {
     color: #808080;
-    border: 1px solid #ECECEC;
+    border: 1px solid #ececec;
     width: 80%;
     border-collapse: collapse;
-
 
     > tr td {
       padding: 5px;
@@ -146,13 +141,11 @@ export const UBSInfo = styled.div`
 
     & tr:nth-child(even) {
       background-color: #fff;
-
     }
     & tr:nth-child(odd) {
       background-color: #eee;
     }
-   }
-
+  }
 `;
 
 export const Line = withStyles({

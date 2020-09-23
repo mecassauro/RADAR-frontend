@@ -1,12 +1,7 @@
+/*
 import React from 'react';
 
 import { FiLogOut } from 'react-icons/fi';
-import Homem from '../../assets/Homem.svg'
-import Mulher from '../../assets/Mulher.svg'
-
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 import Grid from '@material-ui/core/Grid';
 import Header from '../../components/Header';
@@ -16,8 +11,6 @@ import Homem from '../../assets/Homem.svg';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
-import Grid from '@material-ui/core/Grid';
 
 import { useFirebase } from '../../hooks/firebase';
 
@@ -61,8 +54,13 @@ function UBS() {
 				<Profissao>PPP</Profissao>
     		</Col>
   		</Row>
+<<<<<<< HEAD
 		</Container> */}
 
+=======
+		</Container> }
+/*
+>>>>>>> ae26e204a004986f952c365142c0572c60ea9533
         <div>
           <Grid container>
             <Grid item>
@@ -88,3 +86,4 @@ function UBS() {
 }
 
 export default UBS;
+*/

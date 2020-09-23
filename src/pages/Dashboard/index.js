@@ -15,7 +15,8 @@ import {
   FiLogOut,
   FiX,
 } from 'react-icons/fi';
-import geoJsonFeat from '../../Material/UBStot.json';
+import geoJsonSam from '../../Material/samTot.json';
+import geoJsonRec from '../../Material/emasTot.json';
 
 import { useFirebase } from '../../hooks/firebase';
 import api from '../../api';
@@ -28,7 +29,7 @@ import {
   Container,
   Header,
   TimeLine,
-  Controlls,
+  Controllers,
   LineContainer,
   Line,
   Logo,
@@ -146,7 +147,7 @@ const marks = [
   },
 ];
 
-function valuetext(value) {
+function valueText(value) {
   return marks_ant[marks_ant.findIndex(mark => mark.value === value)].label;
 }
 
@@ -156,7 +157,7 @@ function Dashboard() {
   const [lineValue, setLineValue] = useState(99);
   const [apiData, setApiData] = useState([]);
   const [data, setData] = useState([]);
-  const [USBData, setUBSdata] = useState({});
+  const [USBData, setUBSData] = useState({});
   const [time, setTime] = useState(0);
   const [points, setPoints] = useState([{}]);
   const { token, signOut } = useFirebase();
@@ -173,11 +174,11 @@ function Dashboard() {
 
         setApiData(response.data);
 
-        const data = getPointsFiltered(
+        const dataFiltered = getPointsFiltered(
           response.data,
-        ).map(({ lat, long, data }) => ({ lat, long, date: data }));
-        setData(data);
-        setPoints(data);
+        ).map(({ lat, long, data: date }) => ({ lat, long, date }));
+        setData(dataFiltered);
+        setPoints(dataFiltered);
       } catch (err) {
         signOut();
         console.log(err);
@@ -219,7 +220,7 @@ function Dashboard() {
     }
   }
 
-  function handleLine(dataRecived, value) {
+  function handleLine(dataReceived, value) {
     clearInterval(time);
     setLineValue(value);
     setIsPlaying(false);
@@ -227,13 +228,13 @@ function Dashboard() {
 
   function handleFeature({ layer }) {
     const { feature } = layer;
-    const usbStatistic = getStatistics(apiData, feature.properties.name);
-    setUBSdata(usbStatistic);
+    const usbStatistic = getStatistics(apiData, feature.properties.UBS);
+    setUBSData(usbStatistic);
     setOpenCard(true);
   }
 
   const currentUbS = useMemo(() => {
-    console.log(USBData);
+    // console.log(USBData)
     const obito = Math.round((USBData.obito * 100) / USBData.casos);
     const comorb = Math.round((USBData.comorb * 100) / USBData.casos);
 
@@ -279,7 +280,12 @@ function Dashboard() {
             <GeoJSON
               fillOpacity={0.1}
               onclick={handleFeature}
-              data={geoJsonFeat}
+              data={geoJsonSam}
+            />
+            <GeoJSON
+              fillOpacity={0.1}
+              onclick={handleFeature}
+              data={geoJsonRec}
             />
             <HeatmapLayer
               fitBoundsOnLoad
@@ -290,7 +296,7 @@ function Dashboard() {
             />
           </Map>
           <TimeLine>
-            <Controlls>
+            <Controllers>
               <FiSkipBack size={24} color="#9E9E9E" />
               {isPlaying ? (
                 <FiPause onClick={handlePlay} size={24} color="#9E9E9E" />
@@ -298,11 +304,11 @@ function Dashboard() {
                 <FiPlay onClick={handlePlay} size={24} color="#9E9E9E" />
               )}
               <FiSkipForward size={24} color="#9E9E9E" />
-            </Controlls>
+            </Controllers>
             <LineContainer>
               <Line
                 value={lineValue}
-                valueLabelFormat={valuetext}
+                valueLabelFormat={valueText}
                 min={0}
                 max={20}
                 step={1}
