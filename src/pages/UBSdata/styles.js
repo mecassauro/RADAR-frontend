@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   display: block;
@@ -33,17 +34,31 @@ export const DataContainer = styled.div`
 export const Pdf = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
 
   font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-  font-size: 20px;
-
+  font-weight: 600;
+  font-size: 14px;
+  color: #545454;
   width: 160px;
   border-radius: 8px;
   border: 0;
   background-color: #fff;
-  margin-right: 10px;
+  margin-right: 16px;
+
+  &:hover {
+    background-color: ${darken(0.1, '#fff')};
+  }
+
+  &:active {
+    background-color: ${darken(0.2, '#fff')};
+  }
+  span {
+    margin-right: 16px;
+  }
+
+  cursor: pointer;
 `;
 
 export const Content = styled.div`
