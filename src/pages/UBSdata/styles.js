@@ -1,138 +1,325 @@
 import styled from 'styled-components';
 
-export const Container2 = styled.div`
+export const Container = styled.div`
   display: block;
-  background: #F6F6F6;
+  background: #f6f6f6;
   align-items: center;
   height: 100%;
   width: 100%;
   position: fixed;
+  overflow-y: auto;
 `;
 
-export const Idade = styled.div`
-	height: 235px;
-	width: 380px;
-	background: #FAFAFA;
-	border: 1px solid #CDCDCD;
-	margin-top: 25px;
-  	margin-left: 10px;
-  	margin-right: 10px;
-  	margin-bottom: 10px;
-
+export const PanelContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-export const Casos = styled.div`
-	height: 430px;
-	width: 820px;
-	background: #FAFAFA;
-	border: 1px solid #CDCDCD;
-	margin-top: 25px;
-  	margin-left: 10px;
-  	margin-right: 10px;
-  	margin-bottom: 10px;
+export const DataContainer = styled.div`
+  margin: 8px 19px 0px 19px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  background-color: #f6f6f6;
 
+  > div {
+    color: black;
+    display: flex;
+  }
 `;
 
-export const Comorbidades = styled.div`
-	height: 340px;
-	width: 380px;
-	background: #FAFAFA;
-	border: 1px solid #CDCDCD;
-	margin-top: 25px;
-  	margin-left: 10px;
-  	margin-right: 10px;
-  	margin-bottom: 10px;
+export const Pdf = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+
+  width: 160px;
+  border-radius: 8px;
+  border: 0;
+  background-color: #fff;
+  margin-right: 10px;
 `;
 
-export const Profissao = styled.div`
-	height: 340px;
-	width: 380px;
-	background: #FAFAFA;
-	border: 1px solid #CDCDCD;
-	margin-top: 25px;
-  	margin-left: 10px;
-  	margin-right: 10px;
-  	margin-bottom: 10px;
+export const Content = styled.div`
+  margin: 10px 20px 0 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+
+  height: 160px;
+
+  border-radius: 8px;
+`;
+
+export const MiniContainer = styled.div`
+  margin: 8px 5px 0 8px;
+  padding: 15px 0 15px 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 395px;
+  /* width: 336px; */
+  /* height: 160px; */
+
+  & + div + div + div {
+    margin-right: 9px;
+  }
+
+  h1,
+  strong {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  strong {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  border-radius: 8px;
+  color: #4f4f4f;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  img {
+    margin-right: 40px;
+    margin-left: 20px;
+    color: #01579b;
+  }
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #959595;
+    font-size: 15px;
+
+    small {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    img,
+    svg {
+      margin-right: 5px;
+      margin-left: 0;
+    }
+  }
+`;
+
+export const Content2 = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #f6f6f6;
+  border-radius: 8px;
+  /* height: 615px; */
+
+  margin: 14px 20px 16px 20px;
+  strong {
+    font-size: 20px;
+  }
+`;
+
+export const Content3 = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  background-color: #f6f6f6;
+
+  border-radius: 8px;
+
+  height: 520px;
+  width: 70%;
+
+  margin-right: 15px;
+`;
+
+export const Comorbidities = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+
+  border-radius: 8px;
+
+  height: 529px;
+  width: 30%;
+
+  h2 {
+    margin: 10px 0 0 12px;
+    color: #4f4f4f;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  h2 ~ h2 {
+    margin-top: 50px;
+  }
+`;
+
+export const Cases = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  background-color: #fff;
+
+  border-radius: 8px;
+  min-height: 310px;
+  /* min-height: 350px; */
+
+  /* width: 963px; */
+  padding: 10px 0;
+  margin-bottom: 14px;
+
+  img {
+    margin-top: 10px;
+    margin-right: 30px;
+  }
+
+  span {
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #4f4f4f;
+
+    margin-left: 40px;
+    /* float: left; */
+  }
+`;
+
+export const Content4 = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  background-color: #fff;
+
+  border-radius: 8px;
+  height: 205px;
+
+  background-color: #f6f6f6;
+`;
+
+export const Deaths = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
+  width: 630px;
+  background-color: #fff;
+
+  margin-right: 15px;
+  padding-top: 10px;
+  img {
+    margin-top: 10px;
+    margin-right: 30px;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+
+    div {
+      display: flex;
+      font-size: 14px;
+      margin-right: 50px;
+      justify-content: center;
+    }
+    svg {
+      margin-right: 5px;
+    }
+    svg ~ svg {
+      margin-left: 10px;
+    }
+    color: #4f4f4f;
+
+    margin-left: 40px;
+  }
 `;
 
 export const Sexes = styled.div`
-	height: 235px;
-	width: 380px;
-	background: #FAFAFA;
-	border: 1px solid #CDCDCD;
-	
-	margin-top: 25px;
-  	margin-left: 10px;
-  	margin-right: 10px;
-  	margin-bottom: 10px;
-`;
-
-
-export const Content = styled.div`
-  margin-top: 25px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-	display: flex;
-  
-  padding: 45px;
 
-  background: #FFFFFF;
-  border: 1px solid #CDCDCD;
-  box-sizing: border-box;
-  border-radius: 20px;
+  border-radius: 8px;
+  width: 380px;
+  background-color: #fff;
 
-  > img {
-    width: 60%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+  div ~ div {
+    margin-top: 10px;
   }
 
-  form {
+  font-family: 'Roboto', sans-serif;
+  div {
+    font-weight: bold;
+
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 400px;
 
+    margin-top: 25px;
+    color: #4f4f4f;
 
-    font-size: 14px;
-
-    margin-bottom: 50px;
-
-    div + div {
-      margin-top: 8px;
+    img ~ img {
+      margin-left: 70px;
+    }
+    h1 {
+      font-weight: bold;
+      font-size: 36px;
     }
 
-    input{
-
-      margin-left: auto;
-      margin-right: auto;
-      width: 350px;
-      height: 40px;
-
+    h1 ~ h1 {
+      margin-left: 55px;
     }
 
-    button {
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 25px;
-      width: 200px;
-      height: 40px;
-      background-color: #8257E5;
+    h4 ~ h4 {
+      margin-left: 55px;
+    }
 
-      font-style: normal;
+    h4 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      /* font-family: 'Roboto', sans-serif; */
+      font-weight: bold;
       font-size: 14px;
-      line-height: 16px;
-      text-align: center;
 
-      color: #FFFFFF;
+      margin-top: 28px;
+
+      svg {
+        margin-right: 5px;
+      }
     }
   }
 `;
-
-
-
