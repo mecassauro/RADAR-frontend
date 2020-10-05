@@ -245,7 +245,9 @@ export const Deaths = styled.div`
   flex-direction: column;
 
   border-radius: 8px;
-  width: 630px;
+  width: 62%;
+  /* width: 630px */
+
   background-color: #fff;
 
   margin-right: 15px;
@@ -288,7 +290,9 @@ export const Sexes = styled.div`
   align-items: center;
 
   border-radius: 8px;
-  width: 380px;
+  width: 38%;
+  /* width: 380px */
+
   background-color: #fff;
 
   div ~ div {

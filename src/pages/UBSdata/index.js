@@ -3,6 +3,7 @@ import React from 'react';
 import { ImArrowUp2, ImArrowDown2 } from 'react-icons/im';
 import Header from '../../components/Header';
 import Selector from '../../components/Selector';
+import LinearProgres from '../../components/LinearProgres';
 
 import Import from '../../assets/Import.svg';
 import Export from '../../assets/Export.svg';
@@ -163,7 +164,19 @@ function UBS() {
               <Sexes />
             </Content4>
           </Content3>
-          <Comorbidities />
+          <Comorbidities>
+            <h2>Comorbidades</h2>
+            <LinearProgres name="Diabetes" value={50.37} />
+            <LinearProgres name="Hipertensao" value={61.42} />
+            <LinearProgres name="HIV" value={30} />
+            <LinearProgres name="Nefropatia" value={36.84} />
+
+            <h2>Profissões</h2>
+            <LinearProgres name="Diabetes" value={35.37} />
+            <LinearProgres name="Hipertensao" value={61.42} />
+            <LinearProgres name="HIV" value={15.51} />
+            <LinearProgres name="Nefropatia" value={36.84} />
+          </Comorbidities>
         </Content2>
       </PanelContainer>
     </Container>
