@@ -66,15 +66,14 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #fff;
+  background: #f6f6f6;
 
-  height: 160px;
+  /* height: 160px; */
 
   border-radius: 8px;
 `;
 
 export const MiniContainer = styled.div`
-  margin: 8px 5px 0 8px;
   padding: 15px 0 15px 40px;
   background-color: #fff;
   display: flex;
@@ -84,8 +83,9 @@ export const MiniContainer = styled.div`
   /* width: 336px; */
   /* height: 160px; */
 
+  margin-right: 12px;
   & + div + div + div {
-    margin-right: 9px;
+    margin-right: 0px;
   }
 
   h1,
