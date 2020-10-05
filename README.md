@@ -1,38 +1,59 @@
-# Covinfo Frontend
+# Covinfo Front-end
 
-## Documentos do projeto 
+<p align="center">
+  <img src="./img/logo.svg" alt="logo">
+</p>
 
-- [Como Rodar](./docs/development.md)
-- [Guia de Contribuição](./docs/CONTRIBUTING.md)
-- [Código de Conduta](./docs/CODE_OF_CONDUCT.md)
-- [Plano de Gerenciamento e configuração](https://github.com/mecassauro/docs/blob/master/docs/gcs.md)
+O Front-end do projeto **Covinfo** é a camada que interage diretamente com o usuário.
 
-## Learn More
+## Tecnologias utilizadas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. [React JS](https://pt-br.reactjs.org/)
+2. [Docker](https://www.docker.com/what-docker)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Rodando da aplicação
 
-### Code Splitting
+O projeto ultiliza a plataforma [Docker](https://www.docker.com/what-docker) para a configuração de ambiente, afim de evitar problemas de compatibilidade de sistema. Os passos abaixo podem ser seguidos para executar a aplicação usando a plataforma:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+1) Instalação do [Docker](https://docs.docker.com/engine/installation/)
+2) Instalação do [Docker Compose](https://docs.docker.com/compose/install/)
+3) Siga as seguintes etapas:
 
-### Analyzing the Bundle Size
+Clone o repositório:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+ ```
+ git clone https://github.com/mecassauro/RADAR-frontend.git
+ ```
 
-### Making a Progressive Web App
+Crie e inicie os containers dos serviços:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+ ```
+ docker-compose build
+ docker-compose up
+ ```
 
-### Advanced Configuration
+Ao terminar de usar os serviços, user o seguinte comando para para-los:
+ ```
+ docker-compose down
+ ```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Acesse a aplicação na porta 3001 do seu `browser`: [http://localhost:3001]()
 
-### Deployment
+ ## Como contribuir com o projeto?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+ <details><summary><b>Contribuição</b></summary>
+ 1. <a href="https://github.com/mecassauro/RADAR-frontend/blob/master/docs/CONTRIBUTING.md">Guia de Contribuição</a>
+ </details>
 
-### `yarn build` fails to minify
+<details><summary><b>Código de Conduta</b></summary>
+1. <a href="https://github.com/mecassauro/RADAR-frontend/blob/master/docs/CODE_OF_CONDUCT.md">Código de Conduta</a>
+</details>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<details><summary><b>Políticas de Contribuição</b></summary>
+1. <a href="https://github.com/mecassauro/docs/blob/master/docs/gcs.md">Política de branchs/commits/</a>
+</details>
+
+
+
+
+
