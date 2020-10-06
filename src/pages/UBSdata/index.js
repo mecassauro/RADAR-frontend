@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { ImArrowUp2, ImArrowDown2 } from 'react-icons/im';
+import { BsFillSquareFill } from 'react-icons/bs';
+
 import Header from '../../components/Header';
 import Selector from '../../components/Selector';
 import LinearProgres from '../../components/LinearProgres';
@@ -12,6 +14,8 @@ import User from '../../assets/User.svg';
 import Pulse from '../../assets/Pulse.svg';
 import Cure from '../../assets/Cure.svg';
 import Magnifier from '../../assets/Magnifier.svg';
+import Female from '../../assets/Female.svg';
+import Male from '../../assets/Male.svg';
 
 import { useFirebase } from '../../hooks/firebase';
 
@@ -161,7 +165,27 @@ function UBS() {
             <Cases />
             <Content4>
               <Deaths />
-              <Sexes />
+
+              <Sexes>
+                <div>
+                  <img src={Female} alt="Mulher" />
+                  <img src={Male} alt="Home" />
+                </div>
+
+                <div>
+                  <h1>26%</h1>
+                  <h1>74%</h1>
+                </div>
+
+                <div>
+                  <h4>
+                    <BsFillSquareFill color="#E786D7" /> Mulher
+                  </h4>
+                  <h4>
+                    <BsFillSquareFill color="#5E6BE3" /> Homem
+                  </h4>
+                </div>
+              </Sexes>
             </Content4>
           </Content3>
           <Comorbidities>
