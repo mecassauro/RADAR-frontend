@@ -44,8 +44,8 @@ export default function Selector({ options }) {
           borderRadius: 0,
           colors: {
             ...theme.colors,
-            primary25: '#7F7FD5',
-            primary50: '#7F7FD5',
+            primary25: '#639BDC',
+            primary50: '#639BDC',
 
             primary: '#01579B',
           },

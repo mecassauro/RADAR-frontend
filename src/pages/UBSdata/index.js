@@ -162,9 +162,20 @@ function UBS() {
 
         <Content2>
           <Content3>
-            <Cases />
+            <Cases>
+              <span> Casos </span>
+            </Cases>
+
             <Content4>
-              <Deaths />
+              <Deaths>
+                <span>
+                  Óbitos
+                  <div>
+                    <BsFillSquareFill color="#E786D7" /> Mulher
+                    <BsFillSquareFill color="#5E6BE3" /> Homem
+                  </div>
+                </span>
+              </Deaths>
 
               <Sexes>
                 <div>
@@ -190,16 +201,16 @@ function UBS() {
           </Content3>
           <Comorbidities>
             <h2>Comorbidades</h2>
-            <LinearProgres name="Diabetes" value={50.37} />
+            <LinearProgres name="Diabetes" value={20} />
             <LinearProgres name="Hipertensao" value={61.42} />
-            <LinearProgres name="HIV" value={30} />
+            <LinearProgres name="HIV" value={47} />
             <LinearProgres name="Nefropatia" value={36.84} />
 
             <h2>Profissões</h2>
-            <LinearProgres name="Diabetes" value={35.37} />
-            <LinearProgres name="Hipertensao" value={61.42} />
-            <LinearProgres name="HIV" value={15.51} />
-            <LinearProgres name="Nefropatia" value={36.84} />
+            <LinearProgres name="Médicos" value={79.58} />
+            <LinearProgres name="Enfermeiros" value={83.52} />
+            <LinearProgres name="Dentistas" value={90.41} />
+            <LinearProgres name="Comissários" value={60} />
           </Comorbidities>
         </Content2>
       </PanelContainer>

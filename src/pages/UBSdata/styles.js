@@ -14,10 +14,12 @@ export const Container = styled.div`
 export const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
+
+  margin: 15px 10px;
 `;
 
 export const DataContainer = styled.div`
-  margin: 8px 19px 0px 19px;
+  margin: 0 19px 0px 19px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -45,7 +47,10 @@ export const Pdf = styled.div`
   border-radius: 8px;
   border: 0;
   background-color: #fff;
-  margin-right: 16px;
+
+  & ~ & {
+    margin-left: 11px;
+  }
 
   &:hover {
     background-color: ${darken(0.1, '#fff')};
@@ -145,6 +150,8 @@ export const MiniContainer = styled.div`
 `;
 
 export const Content2 = styled.div`
+  margin: 14px 20px 0px 20px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -152,7 +159,6 @@ export const Content2 = styled.div`
   border-radius: 8px;
   /* height: 615px; */
 
-  margin: 14px 20px 16px 20px;
   strong {
     font-size: 20px;
   }
@@ -334,7 +340,7 @@ export const Sexes = styled.div`
       font-weight: bold;
       font-size: 14px;
 
-      margin-top: 28px;
+      margin-top: 40px;
 
       svg {
         margin-right: 5px;
