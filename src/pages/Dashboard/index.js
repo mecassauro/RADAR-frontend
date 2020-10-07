@@ -14,6 +14,7 @@ import {
   FiUser,
   FiLogOut,
   FiX,
+  FiClipboard,
 } from 'react-icons/fi';
 import geoJsonSam from '../../Material/samTot.json';
 import geoJsonRec from '../../Material/emasTot.json';
@@ -255,6 +256,13 @@ function Dashboard() {
               <h1>Radar</h1>
             </Logo>
             <UserInfo>
+              <div>
+                <FiClipboard
+                  onClick={() => navigation.push('UBS')}
+                  size={20}
+                  color="#8257E5"
+                />
+              </div>
               <div>
                 <FiUser
                   onClick={() => navigation.push('profile')}

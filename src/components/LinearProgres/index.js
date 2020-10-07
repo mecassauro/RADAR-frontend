@@ -16,7 +16,7 @@ const MyLinearProgress = withStyles({
   },
   bar: {
     borderRadius: 5,
-    backgroundColor: '#7F7FD5',
+    backgroundColor: '#639BDC',
   },
 })(LinearProgress);
 

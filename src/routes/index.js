@@ -17,7 +17,7 @@ function Routes() {
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
       <Route path="/forgot" component={Forgot} />
-      <Route path="/UBS" component={UBS} />
+      <Route path="/UBS" component={UBS} isPrivate />
     </Switch>
   );
 }

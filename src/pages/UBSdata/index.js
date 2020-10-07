@@ -17,8 +17,6 @@ import Magnifier from '../../assets/Magnifier.svg';
 import Female from '../../assets/Female.svg';
 import Male from '../../assets/Male.svg';
 
-import { useFirebase } from '../../hooks/firebase';
-
 import {
   Container,
   DataContainer,
@@ -36,8 +34,6 @@ import {
 } from './styles';
 
 function UBS() {
-  const { signOut } = useFirebase();
-
   return (
     <Container>
       <Header />
@@ -45,7 +41,7 @@ function UBS() {
       <PanelContainer>
         <DataContainer>
           <div>
-            <Selector options={['UBS5', 'UBS4', 'UBS3', 'UBS2', 'UBS1']} />
+            <Selector options={['UBS01', 'UBS02', 'UBS03', 'UBS04', 'UBS05']} />
             <Selector
               options={[
                 'Janeiro',
@@ -201,7 +197,7 @@ function UBS() {
           </Content3>
           <Comorbidities>
             <h2>Comorbidades</h2>
-            <LinearProgres name="Diabetes" value={20} />
+            <LinearProgres name="Diabetes" value={40} />
             <LinearProgres name="Hipertensao" value={61.42} />
             <LinearProgres name="HIV" value={47} />
             <LinearProgres name="Nefropatia" value={36.84} />

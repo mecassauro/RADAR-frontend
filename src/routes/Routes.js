@@ -9,8 +9,8 @@ function Route({ isPrivate = false, component: Component, ...rest }) {
     <RouteDOM
       {...rest}
       render={({ location }) => {
-        console.log(isPrivate)
-        console.log(!!user)
+        console.log(isPrivate);
+        console.log(!!user);
         return isPrivate === !!user ? (
           <Component />
         ) : (
@@ -24,6 +24,6 @@ function Route({ isPrivate = false, component: Component, ...rest }) {
       }}
     />
   );
-};
+}
 
 export default Route;
