@@ -37,7 +37,7 @@ export const Logo = styled.div`
 
   h1 {
     margin-right: 30px;
-    font-size: 26px;
+    font-size: 36px;
   }
 `;
 
@@ -45,7 +45,7 @@ export const UserInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 5vw;
+  margin-right: 50px;
 
   div {
     cursor: pointer;

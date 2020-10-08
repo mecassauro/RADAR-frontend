@@ -1,23 +1,25 @@
 import React from 'react';
 
+import { FiLogOut } from 'react-icons/fi';
 import { Container } from './styles';
-import imgLogo  from '../../assets/logo.svg'
-import {FiLogOut} from 'react-icons/fi';
+import imgLogo from '../../assets/logo.svg';
 
 import { useFirebase } from '../../hooks/firebase';
 
-function Header(){
-    const { signOut } = useFirebase();
-    return(
+function Header() {
+  const { signOut } = useFirebase();
+  return (
     <Container>
+      <div>
         <img src={imgLogo} alt="Logo" />
         <h1>Radar</h1>
-        <div>
-            <FiLogOut onClick={signOut} size={20} color="#8257E5" />
-        </div>
-    </Container>
+      </div>
 
-    );
+      <div>
+        <FiLogOut onClick={signOut} size={20} color="#59595B" />
+      </div>
+    </Container>
+  );
 }
 
 export default Header;
