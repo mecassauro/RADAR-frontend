@@ -260,18 +260,18 @@ function Dashboard() {
                 <FiClipboard
                   onClick={() => navigation.push('UBS')}
                   size={20}
-                  color="#8257E5"
+                  color="#59595B"
                 />
               </div>
               <div>
                 <FiUser
                   onClick={() => navigation.push('profile')}
                   size={20}
-                  color="#8257E5"
+                  color="#59595B"
                 />
               </div>
               <div>
-                <FiLogOut onClick={signOut} size={20} color="#8257E5" />
+                <FiLogOut onClick={signOut} size={20} color="#59595B" />
               </div>
             </UserInfo>
           </Header>

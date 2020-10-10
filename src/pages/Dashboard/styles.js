@@ -27,12 +27,16 @@ export const Logo = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: ${theme.color.primary};
+  /* background-color: ${theme.color.primary}; */
+  background-color: #0669B7;
   border-radius: 0 0 50px 0;
 
   img {
     width: 80px;
     margin: 0 20px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   h1 {
@@ -150,7 +154,8 @@ export const UBSInfo = styled.div`
 
 export const Line = withStyles({
   root: {
-    color: theme.color.primary,
+    // color: theme.color.primary,
+    color: '#0669B7',
     height: 8,
   },
   thumb: {

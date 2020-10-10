@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { FiLogOut } from 'react-icons/fi';
 import { Container } from './styles';
@@ -11,7 +12,9 @@ function Header() {
   return (
     <Container>
       <div>
-        <img src={imgLogo} alt="Logo" />
+        <Link to="/dashboard">
+          <img src={imgLogo} alt="Logo" />
+        </Link>
         <h1>Radar</h1>
       </div>
 

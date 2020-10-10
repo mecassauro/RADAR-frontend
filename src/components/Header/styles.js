@@ -12,6 +12,12 @@ export const Container = styled.div`
   div {
     display: flex;
     flex-direction: row;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   div ~ div {

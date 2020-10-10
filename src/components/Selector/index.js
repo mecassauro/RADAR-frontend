@@ -20,7 +20,7 @@ const customStyles = {
   option: styles => ({ ...styles }),
 };
 
-export default function Selector({ options }) {
+export default function Selector({ options, onChange, name, value, ref }) {
   const curr = options;
 
   const currencies = [];
@@ -35,10 +35,14 @@ export default function Selector({ options }) {
     <Container>
       <Select
         // defaultValue={{ value: name, label: name }}
+        ref={ref}
+        value={value}
+        name={name}
         defaultValue={currencies[0]}
         styles={customStyles}
         label="Single select"
         options={currencies}
+        onChange={onChange}
         theme={theme => ({
           ...theme,
           borderRadius: 0,

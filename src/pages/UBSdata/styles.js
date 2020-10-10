@@ -15,7 +15,8 @@ export const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin: 15px 10px;
+  margin: 15px auto;
+  max-width: 1475px;
 `;
 
 export const DataContainer = styled.div`

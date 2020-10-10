@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 
 import { ImArrowUp2, ImArrowDown2 } from 'react-icons/im';
 import { BsFillSquareFill } from 'react-icons/bs';
@@ -19,21 +19,42 @@ import Male from '../../assets/Male.svg';
 
 import {
   Container,
+  PanelContainer,
   DataContainer,
   Content,
   Content2,
   Content3,
+  Content4,
   Comorbidities,
   Cases,
-  Content4,
   Deaths,
   Sexes,
-  PanelContainer,
   Pdf,
   MiniContainer,
 } from './styles';
 
 function UBS() {
+  const [ubsNumber, setUbsNumber] = useState('UBS01');
+  const [month, setMonth] = useState('Janeiro');
+  const [year, setYear] = useState('2020');
+  const [city, setCity] = useState('Plano Piloto');
+
+  const handdleChangeUbsNumber = useCallback(selected => {
+    setUbsNumber(selected.value);
+  }, []);
+
+  const handdleChangeMonth = useCallback(selected => {
+    setMonth(selected.value);
+  }, []);
+
+  const handdleChangeYear = useCallback(selected => {
+    setYear(selected.value);
+  }, []);
+
+  const handdleChangeCity = useCallback(selected => {
+    setCity(selected.value);
+  }, []);
+
   return (
     <Container>
       <Header />
@@ -41,8 +62,13 @@ function UBS() {
       <PanelContainer>
         <DataContainer>
           <div>
-            <Selector options={['UBS01', 'UBS02', 'UBS03', 'UBS04', 'UBS05']} />
             <Selector
+              onChange={handdleChangeUbsNumber}
+              options={['UBS01', 'UBS02', 'UBS03', 'UBS04', 'UBS05']}
+            />
+            {console.log(`${ubsNumber} ${month} ${year} ${city}`)}
+            <Selector
+              onChange={handdleChangeMonth}
               options={[
                 'Janeiro',
                 'Fevereiro',
@@ -58,11 +84,11 @@ function UBS() {
                 'Dezembro',
               ]}
             />
-            <Selector options={['2020', '2019']} />
+            <Selector onChange={handdleChangeYear} options={['2020', '2019']} />
           </div>
           <div>
             <Selector
-              name="Cidades"
+              onChange={handdleChangeCity}
               options={[
                 'Plano Piloto',
                 'Lago Sul',
