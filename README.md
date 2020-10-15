@@ -2,6 +2,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=mecassauro_RADAR-frontend&metric=bugs)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mecassauro_RADAR-frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mecassauro_RADAR-frontend&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
+[![Build Status](https://travis-ci.org/mecassauro/RADAR-frontend.svg?branch=master)](https://travis-ci.org/mecassauro/RADAR-frontend)
 
 # Covinfo Front-end
 
