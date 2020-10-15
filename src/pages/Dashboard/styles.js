@@ -27,17 +27,21 @@ export const Logo = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: ${theme.color.primary};
+  /* background-color: ${theme.color.primary}; */
+  background-color: #0669B7;
   border-radius: 0 0 50px 0;
 
   img {
     width: 80px;
     margin: 0 20px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   h1 {
     margin-right: 30px;
-    font-size: 26px;
+    font-size: 36px;
   }
 `;
 
@@ -45,7 +49,7 @@ export const UserInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 5vw;
+  margin-right: 50px;
 
   div {
     cursor: pointer;
@@ -150,7 +154,8 @@ export const UBSInfo = styled.div`
 
 export const Line = withStyles({
   root: {
-    color: theme.color.primary,
+    // color: theme.color.primary,
+    color: '#0669B7',
     height: 8,
   },
   thumb: {
