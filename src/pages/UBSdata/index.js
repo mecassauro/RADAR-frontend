@@ -188,12 +188,35 @@ function UBS() {
           <Content3>
             <Cases>
               <span> Casos </span>
-              <CasesGraph width="100%" height="100%" />
+              <CasesGraph
+                width="100%"
+                height="100%"
+                data={[
+                  25.0,
+                  32.4,
+                  22,
+                  39.4,
+                  34.2,
+                  22.0,
+                  23.2,
+                  21,
+                  20.0,
+                  10,
+                  8,
+                  5,
+                ]}
+              />
             </Cases>
 
             <Content4>
               <Deaths>
                 <span> Óbitos </span>
+                <DeathGraph
+                  min={0}
+                  max={40}
+                  dataMulheres={[1, 3, 6, 10, 15, 18, 25, 38]}
+                  dataHomens={[2, 4, 7, 10, 15, 18, 25, 38]}
+                />
               </Deaths>
 
               <Sexes>
