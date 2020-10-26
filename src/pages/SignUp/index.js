@@ -20,6 +20,7 @@ import {
   Title,
   CreateAccount,
   Error,
+  VanishDiv,
 } from '../SignIn/styles';
 
 function SignUp() {
@@ -117,9 +118,11 @@ function SignUp() {
       </div>
 
       <Background>
-        <h1>Vigilância Epidemiológica | APS</h1>
-        <h2>Região de Saúde Sudoeste - DF</h2>
-        <img src={imgTeam} alt="Doctors" />
+        <VanishDiv>
+          <h1>Vigilância Epidemiológica | APS</h1>
+          <h2>Região de Saúde Sudoeste - DF</h2>
+          <img src={imgTeam} alt="Doctors" />
+        </VanishDiv>
       </Background>
     </Container>
   );
