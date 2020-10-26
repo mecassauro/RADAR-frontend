@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components';
-import theme from '../../styles/theme'
+import styled, { css } from 'styled-components';
+import theme from '../../styles/theme';
 
 export const Container = styled.div`
   display: flex;
@@ -7,21 +7,22 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   background-color: #fff;
-  border: 3px solid transparent;
-  border-radius: 5px;
+  border: 1px solid ${theme.color.lightGrey};
+  border-radius: 8px;
   padding: 0px 10px;
   svg {
     margin-right: 8px;
   }
 
-
-  ${props => props.isErrored && css`
-    border: 3px solid ${theme.color.error};
-  ` }
+  ${props =>
+    props.isErrored &&
+    css`
+      border: 3px solid ${theme.color.error};
+    `}
 
   input {
     width: 100%;
-    height: 50px;
+    height: 48px;
     border: 0;
     color: ${theme.color.grey};
     &::placeholder {

@@ -4,11 +4,13 @@ import theme from '../../styles/theme'
 
 export const Container = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: ${theme.color.background};
 `;
 
 export const Background = styled.div`
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: center;
 
@@ -17,7 +19,6 @@ export const Background = styled.div`
   height: 100vh;
 
   > img {
-    width: 100%;
     max-height: 30vw;
   }
 
@@ -46,25 +47,27 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 700px;
-  height: 100vh;
 
-  background-color: ${theme.color.primary};
+  width: 28vw;
+
+  min-width: 280px;
+
+  background-color: #fff;
+  border: 1px solid ${theme.color.lightGrey};
+  border-radius: 8px;
 
   img {
-    width: 30vh;
-    margin-bottom: 28px;
+    width: 100px;
   }
 
   h1 {
-    margin-bottom: 60px;
+    margin-bottom: 0px;
 
     font-style: normal;
     font-weight: bold;
-    font-size: 64px;
+    font-size: 54px;
     line-height: 75px;
-    color: #FFFFFF;
+    color: ${theme.color.darkGrey};
   }
 
   form {
@@ -72,8 +75,8 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
-
+    width: 24vw;
+    min-width: 260px;
     font-size: 14px;
 
     margin-bottom: 50px;
