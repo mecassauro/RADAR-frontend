@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-import theme from '../../styles/theme'
+import theme from '../../styles/theme';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
+  justify-content: space-evenly;
   background-color: ${theme.color.background};
+  height: 100vh;
+  @media (max-width: 880px) {
+    justify-content: center;
+  }
 `;
 
 export const Background = styled.div`
@@ -15,8 +19,6 @@ export const Background = styled.div`
   justify-content: center;
 
   align-items: center;
-
-  height: 100vh;
 
   > img {
     max-height: 30vw;
@@ -38,6 +40,12 @@ export const Background = styled.div`
     font-weight: bold;
     font-size: 30px;
     line-height: 35px;
+  }
+`;
+
+export const VanishDiv = styled.div`
+  @media (max-width: 880px) {
+    display: none;
   }
 `;
 
@@ -76,7 +84,7 @@ export const Content = styled.div`
     justify-content: center;
     align-items: center;
     width: 24vw;
-    min-width: 260px;
+    min-width: 240px;
     font-size: 14px;
 
     margin-bottom: 50px;

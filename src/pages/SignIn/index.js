@@ -14,7 +14,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { useFirebase } from '../../hooks/firebase';
 
-import { Container, Background, Content, CreateAccount } from './styles';
+import { Container, Background, Content, CreateAccount, VanishDiv } from './styles';
 import theme from '../../styles/theme';
 
 function SignIn() {
@@ -52,10 +52,7 @@ function SignIn() {
           setEmailError(errors.email);
           setPasswordError(errors.password);
         }
-        console.log(errors);
-        return;
       }
-      console.log(err);
     }
   };
 
@@ -151,6 +148,7 @@ function SignIn() {
                 }}
                 to="/signup"
               >
+                {' '}
                 Cadastre-se
               </Link>
             </p>
@@ -159,9 +157,11 @@ function SignIn() {
       </div>
 
       <Background>
-        <h1>Vigilância Epidemiológica | APS</h1>
-        <h2>Região de Saúde Sudoeste - DF</h2>
-        <img src={imgDoctors} alt="Doctors" />
+        <VanishDiv>
+          <h1>Vigilância Epidemiológica | APS</h1>
+          <h2>Região de Saúde Sudoeste - DF</h2>
+          <img src={imgDoctors} alt="Doctors" />
+        </VanishDiv>
       </Background>
     </Container>
   );
