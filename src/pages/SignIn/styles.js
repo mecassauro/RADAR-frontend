@@ -13,6 +13,29 @@ export const Container = styled.div`
   }
 `;
 
+export const Title = styled.h2`
+  color: ${theme.color.darkGrey};
+  font-size: 36px;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  font-weight: bold;
+`;
+
+export const LogoArea = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+`;
+
+export const Error = styled.span`
+  width: 100%;
+  color: ${theme.color.error};
+  margin-bottom: 20px;
+  font-size: 14px;
+`;
+
 export const Background = styled.div`
   display: flex;
   flex-direction: column;

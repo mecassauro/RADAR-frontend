@@ -3,7 +3,6 @@ import React, { useRef, useState } from 'react';
 import { FiUser, FiLock } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Form } from '@unform/web';
-import { useField } from '@unform/core';
 import * as Yup from 'yup';
 
 import getValidationErrors from '../../utils/getValidationError';
@@ -14,7 +13,16 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { useFirebase } from '../../hooks/firebase';
 
-import { Container, Background, Content, CreateAccount, VanishDiv } from './styles';
+import {
+  Container,
+  Background,
+  Content,
+  CreateAccount,
+  VanishDiv,
+  Title,
+  LogoArea,
+  Error,
+} from './styles';
 import theme from '../../styles/theme';
 
 function SignIn() {
@@ -60,63 +68,27 @@ function SignIn() {
     <Container>
       <div>
         <Content style={{ marginBottom: 36 }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: 8,
-              marginBottom: 8,
-            }}
-          >
+          <LogoArea>
             <img src={imgLogo} alt="Logo" />
             <h1>Radar</h1>
-          </div>
+          </LogoArea>
         </Content>
         <Content>
-          <h2
-            style={{
-              color: `${theme.color.darkGrey}`,
-              fontSize: 36,
-              marginTop: 36,
-              marginBottom: 36,
-              fontWeight: 'bold',
-            }}
-          >
-            Login
-          </h2>
+          <Title>Login</Title>
           <Form
             style={{ marginBottom: 16 }}
             ref={formRef}
             onSubmit={handleSubmit}
           >
             <Input name="email" icon={FiUser} placeholder="E-mail" />
-            <span
-              style={{
-                width: '100%',
-                color: `${theme.color.error}`,
-                marginBottom: 20,
-                fontSize: 14,
-              }}
-            >
-              {emailError}
-            </span>
+            <Error>{emailError}</Error>
             <Input
               name="password"
               icon={FiLock}
               placeholder="Senha"
               type="password"
             />
-            <span
-              style={{
-                width: '100%',
-                color: `${theme.color.error}`,
-                marginBottom: 20,
-                fontSize: 14,
-              }}
-            >
-              {passwordError}
-            </span>
+            <Error>{passwordError}</Error>
             <Button type="submit">Entrar</Button>
           </Form>
           <Link
