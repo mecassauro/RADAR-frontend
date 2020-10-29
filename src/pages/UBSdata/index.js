@@ -6,6 +6,8 @@ import { BsFillSquareFill } from 'react-icons/bs';
 import Header from '../../components/Header';
 import Selector from '../../components/Selector';
 import LinearProgres from '../../components/LinearProgres';
+import CasesGraph from '../../components/CasesGraph';
+import DeathGraph from '../../components/DeathGraph';
 
 import Import from '../../assets/Import.svg';
 import Export from '../../assets/Export.svg';
@@ -186,17 +188,35 @@ function UBS() {
           <Content3>
             <Cases>
               <span> Casos </span>
+              <CasesGraph
+                width="100%"
+                height="100%"
+                data={[
+                  25.0,
+                  32.4,
+                  22,
+                  39.4,
+                  34.2,
+                  22.0,
+                  23.2,
+                  21,
+                  20.0,
+                  10,
+                  8,
+                  5,
+                ]}
+              />
             </Cases>
 
             <Content4>
               <Deaths>
-                <span>
-                  Óbitos
-                  <div>
-                    <BsFillSquareFill color="#E786D7" /> Mulher
-                    <BsFillSquareFill color="#5E6BE3" /> Homem
-                  </div>
-                </span>
+                <span> Óbitos </span>
+                <DeathGraph
+                  min={0}
+                  max={40}
+                  dataMulheres={[1, 3, 6, 10, 15, 18, 25, 38]}
+                  dataHomens={[2, 4, 7, 10, 15, 18, 25, 38]}
+                />
               </Deaths>
 
               <Sexes>
