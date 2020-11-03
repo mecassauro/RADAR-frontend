@@ -63,7 +63,7 @@ function Forgot() {
 
   return (
     <>
-      <Header />
+      <Header canQuit={false} />
       <Container>
         <div>
           <Content style={{ marginBottom: 36 }}>

@@ -7,7 +7,7 @@ import imgLogo from '../../assets/logo.svg';
 
 import { useFirebase } from '../../hooks/firebase';
 
-function Header() {
+function Header({ canQuit = true }) {
   const { signOut } = useFirebase();
   return (
     <Container>
@@ -18,9 +18,11 @@ function Header() {
         <h1>Radar</h1>
       </div>
 
-      <div>
-        <FiLogOut onClick={signOut} size={20} color="#59595B" />
-      </div>
+      {canQuit && (
+        <div>
+          <FiLogOut onClick={signOut} size={20} color="#59595B" />
+        </div>
+      )}
     </Container>
   );
 }
