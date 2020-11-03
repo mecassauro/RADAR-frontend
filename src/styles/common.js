@@ -13,12 +13,26 @@ export const Container = styled.div`
   }
 `;
 
+export const ContainerWithHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: ${theme.color.background};
+  height: calc(100vh - 80px);
+  @media (max-width: 880px) {
+    justify-content: center;
+    height: 100%;
+    min-height: 100vh;
+  }
+`;
+
 export const Title = styled.h2`
   color: ${theme.color.darkGrey};
   font-size: 36px;
   margin-top: 36px;
   margin-bottom: 36px;
   font-weight: bold;
+  text-align: center;
 `;
 
 export const LogoArea = styled.div`

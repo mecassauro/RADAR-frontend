@@ -16,7 +16,7 @@ import getValidationErrors from '../../utils/getValidationError';
 import { useFirebase } from '../../hooks/firebase';
 
 import {
-  Container,
+  ContainerWithHeader,
   Content,
   LogoArea,
   Title,
@@ -26,11 +26,12 @@ import {
 
 function Forgot() {
   const { forgotPassword } = useFirebase();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [emailError, setEmailError] = useState('');
   const formRef = useRef();
 
   const handleSubmit = async ({ email }) => {
+    setOpen(false);
     try {
       setEmailError('');
       if (formRef.current) {
@@ -64,7 +65,7 @@ function Forgot() {
   return (
     <>
       <Header canQuit={false} />
-      <Container>
+      <ContainerWithHeader>
         <div>
           <Content style={{ marginBottom: 36 }}>
             <LogoArea>
@@ -90,7 +91,7 @@ function Forgot() {
             </Form>
           </Content>
         </div>
-      </Container>
+      </ContainerWithHeader>
     </>
   );
 }
