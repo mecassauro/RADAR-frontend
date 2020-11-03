@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import theme from '../../styles/theme';
+import theme from './theme';
 
 export const Container = styled.div`
   display: flex;
@@ -122,7 +122,7 @@ export const Content = styled.div`
   }
 `;
 
-export const CreateAccount = styled.div`
+export const Extras = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,4 +133,11 @@ export const CreateAccount = styled.div`
   svg {
     margin-right: 8px;
   }
+`;
+
+export const BoldText = styled.div`
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: ${theme.color.darkGrey};
 `;

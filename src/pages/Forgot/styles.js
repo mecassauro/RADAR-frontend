@@ -1,12 +1,15 @@
 import styled from 'styled-components';
+import theme from '../../styles/theme';
 
 export const Container = styled.div`
-  display: block;
-  background: #F6F6F6;
+  display: flex;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  position: fixed;
+  justify-content: space-evenly;
+  background-color: ${theme.color.background};
+  height: 100vh;
+  @media (max-width: 880px) {
+    justify-content: center;
+  }
 `;
 
 export const Background = styled.div`
@@ -21,25 +24,32 @@ export const Background = styled.div`
 `;
 
 export const Content = styled.div`
-  margin-top: 25px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 480px;
-  padding: 45px;
 
-  background: #FFFFFF;
-  border: 1px solid #CDCDCD;
-  box-sizing: border-box;
-  border-radius: 20px;
+  width: 28vw;
 
-  > img {
-    width: 60%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  min-width: 280px;
 
+  background-color: #fff;
+  border: 1px solid ${theme.color.lightGrey};
+  border-radius: 8px;
+
+  img {
+    width: 100px;
+  }
+
+  h1 {
+    margin-bottom: 0px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 75px;
+    color: ${theme.color.darkGrey};
   }
 
   form {
@@ -47,9 +57,8 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
-
-
+    width: 24vw;
+    min-width: 240px;
     font-size: 14px;
 
     margin-bottom: 50px;
@@ -58,29 +67,8 @@ export const Content = styled.div`
       margin-top: 8px;
     }
 
-    input{
-
-      margin-left: auto;
-      margin-right: auto;
-      width: 350px;
-      height: 40px;
-
-    }
-
     button {
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 25px;
-      width: 200px;
-      height: 40px;
-      background-color: #8257E5;
-
-      font-style: normal;
-      font-size: 14px;
-      line-height: 16px;
-      text-align: center;
-
-      color: #FFFFFF;
+      margin: 16px 0px;
     }
   }
 `;
