@@ -1,12 +1,12 @@
 export default {
   color: {
-    primary: '#36118B',
+    primary: '#0669B7',
     secondary: '',
     grey: '#8C91A5',
-    lightGrey: '#F5F6FA',
-    darkGrey: '#808080',
+    lightGrey: '#DFDFDF',
+    darkGrey: '#4F4F4F',
     success: '#04D361',
     error: '#F80303',
-    background: '#F0F0F7',
+    background: '#EFF3F9',
   }
 }

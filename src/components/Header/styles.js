@@ -42,7 +42,7 @@ export const Container = styled.div`
 
   h1 {
     font-size: 36px;
-    font-family: Roboto Slab;
+    font-family: 'Roboto', sans-serif;
     font-style: bold;
   }
 `;
