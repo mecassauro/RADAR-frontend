@@ -16,9 +16,9 @@ function Input({ name, icon: Icon, ...rest }) {
   }, [fieldName, registerField]);
 
   return (
-    <Container  isErrored={!!error} >
+    <Container isErrored={!!error}>
       {Icon && <Icon size={20} color="#AAA" />}
-      <input ref={inputRef} defaultValue={defaultValue}  {...rest} />
+      <input ref={inputRef} defaultValue={defaultValue} {...rest} />
     </Container>
   );
 }
