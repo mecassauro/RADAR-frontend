@@ -4,13 +4,13 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mecassauro_RADAR-frontend&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
 [![Build Status](https://travis-ci.org/mecassauro/RADAR-frontend.svg?branch=master)](https://travis-ci.org/mecassauro/RADAR-frontend)
 
-# Covinfo Front-end
+# SiMAPS Front-end
 
 <p align="center">
   <img src="./img/logo.svg" alt="logo">
 </p>
 
-O Front-end do projeto **Covinfo** é a camada que interage diretamente com o usuário.
+O Front-end do projeto **SiMAPS** é a camada que interage diretamente com o usuário.
 ## Tecnologias utilizadas
 
 1. [React JS](https://pt-br.reactjs.org/)
