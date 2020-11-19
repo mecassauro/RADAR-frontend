@@ -127,15 +127,20 @@ function Dashboard() {
     setOpenCard(true);
   }
 
+  function getPercentageOfCases(value) {
+    const { casos } = USBData;
+    return Math.round((value * 100) / casos);
+  }
+
   const currentUbS = useMemo(() => {
-    // console.log(USBData)
-    const obito = Math.round((USBData.obito * 100) / USBData.casos);
-    const comorb = Math.round((USBData.comorb * 100) / USBData.casos);
+    const { obito, comorb, casos } = USBData;
+    const obitoPercentage = getPercentageOfCases(obito);
+    const comorbPercentage = getPercentageOfCases(comorb);
 
     return {
-      total: USBData.casos,
-      obito,
-      comorb,
+      total: casos,
+      obitoPercentage,
+      comorbPercentage,
     };
   }, [USBData]);
 
