@@ -18,6 +18,11 @@ import Magnifier from '../../assets/Magnifier.svg';
 import Female from '../../assets/Female.svg';
 import Male from '../../assets/Male.svg';
 
+import ubsPossibilities from './possibleSelectors/ubs.json';
+import monthPossibilities from './possibleSelectors/months.json';
+import yearPossibilities from './possibleSelectors/years.json';
+import cityPossibilities from './possibleSelectors/cities.json';
+
 import DataInformer from '../../components/DataInformer';
 
 import {
@@ -51,52 +56,25 @@ function UBS() {
             <Selector
               value={ubsNumber}
               onChange={setUbsNumber}
-              options={['UBS01', 'UBS02', 'UBS03', 'UBS04', 'UBS05']}
+              options={ubsPossibilities}
             />
             <Selector
               value={month}
               onChange={setMonth}
-              options={[
-                'Janeiro',
-                'Fevereiro',
-                'Março',
-                'Abril',
-                'Maio',
-                'Junho',
-                'Julho',
-                'Agosto',
-                'Setembro',
-                'Outubro',
-                'Novembro',
-                'Dezembro',
-              ]}
+              options={monthPossibilities}
             />
             <Selector
               value={year}
               onChange={setYear}
-              options={['2020', '2019']}
+              options={yearPossibilities}
             />
+            {console.log(ubsNumber)}
           </div>
           <div>
             <Selector
               value={city}
               onChange={setCity}
-              options={[
-                'Plano Piloto',
-                'Lago Sul',
-                'Lago Norte',
-                'Águas Claras',
-                'Gama',
-                'Planaltina',
-                'Guará',
-                'Samabaia',
-                'Taguatinga',
-                'Ceilândia',
-                'Sobradinho',
-                'Braslândia',
-                'Riacho F.',
-                'Cruzeiro',
-              ]}
+              options={cityPossibilities}
             />
             <Pdf>
               <span> Importar </span>
