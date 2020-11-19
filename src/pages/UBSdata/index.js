@@ -41,10 +41,10 @@ import {
 } from './styles';
 
 function UBS() {
-  const [ubsNumber, setUbsNumber] = useState('UBS01');
-  const [month, setMonth] = useState('Janeiro');
-  const [year, setYear] = useState('2020');
-  const [city, setCity] = useState('Plano Piloto');
+  const [, setUbsNumber] = useState('UBS01');
+  const [, setMonth] = useState('Janeiro');
+  const [, setYear] = useState('2020');
+  const [, setCity] = useState('Plano Piloto');
 
   return (
     <Container>
@@ -54,26 +54,21 @@ function UBS() {
         <DataContainer>
           <div>
             <Selector
-              value={ubsNumber}
-              onChange={setUbsNumber}
+              onChange={({ value }) => setUbsNumber(value)}
               options={ubsPossibilities}
             />
             <Selector
-              value={month}
-              onChange={setMonth}
+              onChange={({ value }) => setMonth(value)}
               options={monthPossibilities}
             />
             <Selector
-              value={year}
-              onChange={setYear}
+              onChange={({ value }) => setYear(value)}
               options={yearPossibilities}
             />
-            {console.log(ubsNumber)}
           </div>
           <div>
             <Selector
-              value={city}
-              onChange={setCity}
+              onChange={({ value }) => setCity(value)}
               options={cityPossibilities}
             />
             <Pdf>
