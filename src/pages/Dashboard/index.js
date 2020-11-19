@@ -103,17 +103,25 @@ function Dashboard() {
     return timeDifference < pointsOfAWeek;
   }
 
-  useEffect(() => {
-    const currentPoints = data.map(({ date, long, lat }) => {
+  function removeNulls(array) {
+    const filteredArray = array.map(item => item !== null);
+    return filteredArray;
+  }
+
+  function calculatePoints() {
+    let currentPoints = data.map(({ date, long, lat }) => {
       if (isLessThanAWeek(date)) {
         return { date, long, lat };
       }
       return null;
     });
-    const filteredPoints = currentPoints.filter(point => {
-      return point != null;
-    });
-    setPoints(filteredPoints);
+    currentPoints = removeNulls(currentPoints);
+    return currentPoints;
+  }
+
+  useEffect(() => {
+    const currentPoints = calculatePoints();
+    setPoints(currentPoints);
   }, [lineValue, data]);
 
   function addValue() {
