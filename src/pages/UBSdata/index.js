@@ -49,11 +49,12 @@ function UBS() {
         <DataContainer>
           <div>
             <Selector
+              value={ubsNumber}
               onChange={setUbsNumber}
               options={['UBS01', 'UBS02', 'UBS03', 'UBS04', 'UBS05']}
             />
-            {console.log(`${ubsNumber} ${month} ${year} ${city}`)}
             <Selector
+              value={month}
               onChange={setMonth}
               options={[
                 'Janeiro',
@@ -70,10 +71,15 @@ function UBS() {
                 'Dezembro',
               ]}
             />
-            <Selector onChange={setYear} options={['2020', '2019']} />
+            <Selector
+              value={year}
+              onChange={setYear}
+              options={['2020', '2019']}
+            />
           </div>
           <div>
             <Selector
+              value={city}
               onChange={setCity}
               options={[
                 'Plano Piloto',
