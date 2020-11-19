@@ -41,22 +41,6 @@ function UBS() {
   const [year, setYear] = useState('2020');
   const [city, setCity] = useState('Plano Piloto');
 
-  const handdleChangeUbsNumber = useCallback(selected => {
-    setUbsNumber(selected.value);
-  }, []);
-
-  const handdleChangeMonth = useCallback(selected => {
-    setMonth(selected.value);
-  }, []);
-
-  const handdleChangeYear = useCallback(selected => {
-    setYear(selected.value);
-  }, []);
-
-  const handdleChangeCity = useCallback(selected => {
-    setCity(selected.value);
-  }, []);
-
   return (
     <Container>
       <Header />
@@ -65,12 +49,12 @@ function UBS() {
         <DataContainer>
           <div>
             <Selector
-              onChange={handdleChangeUbsNumber}
+              onChange={setUbsNumber}
               options={['UBS01', 'UBS02', 'UBS03', 'UBS04', 'UBS05']}
             />
             {console.log(`${ubsNumber} ${month} ${year} ${city}`)}
             <Selector
-              onChange={handdleChangeMonth}
+              onChange={setMonth}
               options={[
                 'Janeiro',
                 'Fevereiro',
@@ -86,11 +70,11 @@ function UBS() {
                 'Dezembro',
               ]}
             />
-            <Selector onChange={handdleChangeYear} options={['2020', '2019']} />
+            <Selector onChange={setYear} options={['2020', '2019']} />
           </div>
           <div>
             <Selector
-              onChange={handdleChangeCity}
+              onChange={setCity}
               options={[
                 'Plano Piloto',
                 'Lago Sul',
