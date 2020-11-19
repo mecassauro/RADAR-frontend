@@ -81,16 +81,34 @@ function Dashboard() {
     loadCases();
   }, [token, signOut]);
 
-  useEffect(() => {
+  function calculateTimeDifference(dayOne, dayTwo) {
+    const secondsOfADay = 24 * 60 * 60 * 1000;
+
+    const timeDiferenceInSeconds = dayOne - dayTwo;
+
+    let differenceInDays = timeDiferenceInSeconds / secondsOfADay;
+    differenceInDays = Math.abs(differenceInDays);
+    differenceInDays = Math.round(differenceInDays);
+
+    return differenceInDays;
+  }
+
+  function isLessThanAWeek(date) {
     const dayOne = new Date('2020-03-01').getTime();
+    const dayTwo = new Date(date).getTime();
+
+    const timeDifference = calculateTimeDifference(dayOne, dayTwo);
+    const pointsOfAWeek = lineValue * 7;
+
+    return timeDifference < pointsOfAWeek;
+  }
+
+  useEffect(() => {
     const currentPoints = data.map(({ date, long, lat }) => {
-      const dayTwo = new Date(date).getTime();
-      if (
-        Math.round(Math.abs((dayOne - dayTwo) / (24 * 60 * 60 * 1000))) <
-        7 * lineValue
-      ) {
+      if (isLessThanAWeek(date)) {
         return { date, long, lat };
       }
+      return null;
     });
     const filteredPoints = currentPoints.filter(point => {
       return point != null;
