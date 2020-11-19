@@ -140,7 +140,7 @@ function Dashboard() {
     }
   }
 
-  function handleLine(dataReceived, value) {
+  function handleLine(_, value) {
     clearInterval(time);
     setLineValue(value);
     setIsPlaying(false);
