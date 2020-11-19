@@ -75,7 +75,7 @@ function Dashboard() {
         setPoints(dataFiltered);
       } catch (err) {
         signOut();
-        console.log(err);
+        throw err;
       }
     }
     loadCases();
