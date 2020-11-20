@@ -20,8 +20,8 @@ import geoJsonSam from '../../Material/samTot.json';
 import geoJsonRec from '../../Material/emasTot.json';
 
 import { useFirebase } from '../../hooks/firebase';
-import api from '../../api';
-import getPointsFiltered from '../../utils/getPointsFiltered';
+import { getCases } from '../../api/cases';
+import getFilteredData from './functions/casesData';
 import getStatistics from '../../utils/getStatistics';
 
 import imgLogo from '../../assets/logo.svg';
@@ -41,7 +41,7 @@ import {
 import marks_ant from './marks/marks_ant.json';
 import marks from './marks/marks.json';
 
-import calculatePoints from './calculatePoints';
+import calculatePoints from './functions/calculatePoints';
 
 function valueText(value) {
   return marks_ant[marks_ant.findIndex(mark => mark.value === value)].label;
@@ -67,27 +67,18 @@ function Dashboard() {
   useEffect(() => {
     async function loadCases() {
       try {
-        const response = await api.get('/cases', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setApiData(response.data);
-
-        const dataFiltered = getPointsFiltered(
-          response.data,
-        ).map(({ lat, long, data: date }) => ({ lat, long, date }));
-        setData(dataFiltered);
-        setPoints(dataFiltered);
+        const { data: response } = await getCases();
+        const filteredData = getFilteredData(response);
+        setApiData(response);
+        setData(filteredData);
+        setPoints(filteredData);
       } catch (err) {
         signOut();
         throw err;
       }
-    }  useEffect(() => {
-      const currentPoints = calculatePoints(data, lineValue);
-      setPoints(currentPoints);
-    }, [lineValue, data]);
+    }
+    loadCases();
+  }, [token, signOut]);
 
   function addValue() {
     if (!isPlaying) {
@@ -118,12 +109,12 @@ function Dashboard() {
     setOpenCard(true);
   }
 
-  function getPercentageOfCases(value) {
-    const { casos } = USBData;
-    return Math.round((value * 100) / casos);
-  }
-
   const currentUbS = useMemo(() => {
+    function getPercentageOfCases(value) {
+      const { casos } = USBData;
+      return Math.round((value * 100) / casos);
+    }
+
     const { obito, comorb, casos } = USBData;
     const obitoPercentage = getPercentageOfCases(obito);
     const comorbPercentage = getPercentageOfCases(comorb);
