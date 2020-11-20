@@ -41,6 +41,8 @@ import {
 import marks_ant from './marks/marks_ant.json';
 import marks from './marks/marks.json';
 
+import calculatePoints from './calculatePoints';
+
 function valueText(value) {
   return marks_ant[marks_ant.findIndex(mark => mark.value === value)].label;
 }
@@ -56,6 +58,11 @@ function Dashboard() {
   const [points, setPoints] = useState([{}]);
   const { token, signOut } = useFirebase();
   const navigation = useHistory();
+
+  useEffect(() => {
+    const currentPoints = calculatePoints(data, lineValue);
+    setPoints(currentPoints);
+  }, [lineValue, data]);
 
   useEffect(() => {
     async function loadCases() {
@@ -77,52 +84,10 @@ function Dashboard() {
         signOut();
         throw err;
       }
-    }
-    loadCases();
-  }, [token, signOut]);
-
-  function calculateTimeDifference(dayOne, dayTwo) {
-    const secondsOfADay = 24 * 60 * 60 * 1000;
-
-    const timeDiferenceInSeconds = dayOne - dayTwo;
-
-    let differenceInDays = timeDiferenceInSeconds / secondsOfADay;
-    differenceInDays = Math.abs(differenceInDays);
-    differenceInDays = Math.round(differenceInDays);
-
-    return differenceInDays;
-  }
-
-  function isLessThanAWeek(date) {
-    const dayOne = new Date('2020-03-01').getTime();
-    const dayTwo = new Date(date).getTime();
-
-    const timeDifference = calculateTimeDifference(dayOne, dayTwo);
-    const pointsOfAWeek = lineValue * 7;
-
-    return timeDifference < pointsOfAWeek;
-  }
-
-  function removeNulls(array) {
-    const filteredArray = array.map(item => item !== null);
-    return filteredArray;
-  }
-
-  function calculatePoints() {
-    let currentPoints = data.map(({ date, long, lat }) => {
-      if (isLessThanAWeek(date)) {
-        return { date, long, lat };
-      }
-      return null;
-    });
-    currentPoints = removeNulls(currentPoints);
-    return currentPoints;
-  }
-
-  useEffect(() => {
-    const currentPoints = calculatePoints();
-    setPoints(currentPoints);
-  }, [lineValue, data]);
+    }  useEffect(() => {
+      const currentPoints = calculatePoints(data, lineValue);
+      setPoints(currentPoints);
+    }, [lineValue, data]);
 
   function addValue() {
     if (!isPlaying) {
