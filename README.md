@@ -2,7 +2,7 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=simaps-ubs_simaps-frontend&metric=bugs)](https://sonarcloud.io/dashboard?id=simaps-ubs_simaps-frontend)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=simaps-ubs_simaps-frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=simaps-ubs_simaps-frontend)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=simaps-ubs_simaps-frontend&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=simaps-ubs_simaps-frontend)
-[![Build Status](https://travis-ci.org/simaps-ubs/RADAR-frontend.svg?branch=master)](https://travis-ci.org/simaps-ubs/RADAR-frontend)
+[![Build Status](https://travis-ci.org/simaps-ubs/simaps-frontend.svg?branch=master)](https://travis-ci.org/simaps-ubs/simaps-frontend)
 
 # SiMAPS Front-end
 
