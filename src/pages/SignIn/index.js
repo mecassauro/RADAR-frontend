@@ -17,12 +17,13 @@ import {
   Container,
   Background,
   Content,
-  CreateAccount,
+  Extras,
   VanishDiv,
   Title,
   LogoArea,
   Error,
-} from './styles';
+} from '../../styles/common';
+
 import theme from '../../styles/theme';
 
 function SignIn() {
@@ -102,7 +103,7 @@ function SignIn() {
           >
             Esqueci minha senha
           </Link>
-          <CreateAccount>
+          <Extras>
             <p
               style={{
                 color: `${theme.color.darkGrey}`,
@@ -124,7 +125,7 @@ function SignIn() {
                 Cadastre-se
               </Link>
             </p>
-          </CreateAccount>
+          </Extras>
         </Content>
       </div>
 

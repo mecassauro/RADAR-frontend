@@ -1,16 +1,16 @@
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=mecassauro_RADAR-frontend&metric=coverage)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=mecassauro_RADAR-frontend&metric=bugs)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mecassauro_RADAR-frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mecassauro_RADAR-frontend&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
-[![Build Status](https://travis-ci.org/mecassauro/RADAR-frontend.svg?branch=master)](https://travis-ci.org/mecassauro/RADAR-frontend)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=simaps-ubs_simaps-frontend&metric=coverage)](https://sonarcloud.io/dashboard?id=simaps-ubs_simaps-frontend)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=simaps-ubs_simaps-frontend&metric=bugs)](https://sonarcloud.io/dashboard?id=simaps-ubs_simaps-frontend)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=simaps-ubs_simaps-frontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=simaps-ubs_simaps-frontend)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=simaps-ubs_simaps-frontend&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=simaps-ubs_simaps-frontend)
+[![Build Status](https://travis-ci.org/simaps-ubs/simaps-frontend.svg?branch=master)](https://travis-ci.org/simaps-ubs/simaps-frontend)
 
-# Covinfo Front-end
+# SiMAPS Front-end
 
 <p align="center">
   <img src="./img/logo.svg" alt="logo">
 </p>
 
-O Front-end do projeto **Covinfo** é a camada que interage diretamente com o usuário.
+O Front-end do projeto **SiMAPS** é a camada que interage diretamente com o usuário.
 ## Tecnologias utilizadas
 
 1. [React JS](https://pt-br.reactjs.org/)
@@ -46,7 +46,7 @@ Acesse a aplicação na porta 3001 do seu `browser`: [http://localhost:3001]()
 
 ## Análise estática do código
 
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=mecassauro_RADAR-frontend)
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=simaps-ubs_simaps-frontend)
 
  ## Como contribuir com o projeto?
 

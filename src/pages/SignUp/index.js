@@ -18,10 +18,10 @@ import {
   Content,
   LogoArea,
   Title,
-  CreateAccount,
+  Extras,
   Error,
   VanishDiv,
-} from '../SignIn/styles';
+} from '../../styles/common';
 
 function SignUp() {
   const [nameError, setNameError] = useState('');
@@ -91,7 +91,7 @@ function SignUp() {
             <Error>{passwordError}</Error>
             <Button type="submit">Cadastrar</Button>
           </Form>
-          <CreateAccount>
+          <Extras>
             <p
               style={{
                 color: `${theme.color.darkGrey}`,
@@ -113,7 +113,7 @@ function SignUp() {
                 Entre
               </Link>
             </p>
-          </CreateAccount>
+          </Extras>
         </Content>
       </div>
 

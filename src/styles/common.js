@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import theme from '../../styles/theme';
+import theme from './theme';
 
 export const Container = styled.div`
   display: flex;
@@ -13,12 +13,26 @@ export const Container = styled.div`
   }
 `;
 
+export const ContainerWithHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: ${theme.color.background};
+  height: calc(100vh - 80px);
+  @media (max-width: 880px) {
+    justify-content: center;
+    height: 100%;
+    min-height: 100vh;
+  }
+`;
+
 export const Title = styled.h2`
   color: ${theme.color.darkGrey};
   font-size: 36px;
   margin-top: 36px;
   margin-bottom: 36px;
   font-weight: bold;
+  text-align: center;
 `;
 
 export const LogoArea = styled.div`
@@ -122,7 +136,7 @@ export const Content = styled.div`
   }
 `;
 
-export const CreateAccount = styled.div`
+export const Extras = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,4 +147,11 @@ export const CreateAccount = styled.div`
   svg {
     margin-right: 8px;
   }
+`;
+
+export const BoldText = styled.div`
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: ${theme.color.darkGrey};
 `;
