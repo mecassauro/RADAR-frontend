@@ -207,7 +207,6 @@ export const Comorbidities = styled.div`
 export const Cases = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   background-color: #fff;
 
   border-radius: 8px;
@@ -224,6 +223,8 @@ export const Cases = styled.div`
   }
 
   span {
+    margin-top: 5px;
+
     display: flex;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
@@ -264,7 +265,9 @@ export const Deaths = styled.div`
     margin-right: 30px;
   }
   span {
+    margin-top: 5px;
     display: flex;
+    position: absolute;
     flex-direction: row;
 
     justify-content: space-between;

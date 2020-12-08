@@ -1,11 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 
-import { ImArrowUp2, ImArrowDown2 } from 'react-icons/im';
 import { BsFillSquareFill } from 'react-icons/bs';
 
 import Header from '../../components/Header';
 import Selector from '../../components/Selector';
 import LinearProgres from '../../components/LinearProgres';
+import CasesGraph from '../../components/CasesGraph';
+import DeathGraph from '../../components/DeathGraph';
 
 import Import from '../../assets/Import.svg';
 import Export from '../../assets/Export.svg';
@@ -16,6 +17,13 @@ import Cure from '../../assets/Cure.svg';
 import Magnifier from '../../assets/Magnifier.svg';
 import Female from '../../assets/Female.svg';
 import Male from '../../assets/Male.svg';
+
+import ubsPossibilities from './possibleSelectors/ubs.json';
+import monthPossibilities from './possibleSelectors/months.json';
+import yearPossibilities from './possibleSelectors/years.json';
+import cityPossibilities from './possibleSelectors/cities.json';
+
+import DataInformer from '../../components/DataInformer';
 
 import {
   Container,
@@ -30,30 +38,13 @@ import {
   Deaths,
   Sexes,
   Pdf,
-  MiniContainer,
 } from './styles';
 
 function UBS() {
-  const [ubsNumber, setUbsNumber] = useState('UBS01');
-  const [month, setMonth] = useState('Janeiro');
-  const [year, setYear] = useState('2020');
-  const [city, setCity] = useState('Plano Piloto');
-
-  const handdleChangeUbsNumber = useCallback(selected => {
-    setUbsNumber(selected.value);
-  }, []);
-
-  const handdleChangeMonth = useCallback(selected => {
-    setMonth(selected.value);
-  }, []);
-
-  const handdleChangeYear = useCallback(selected => {
-    setYear(selected.value);
-  }, []);
-
-  const handdleChangeCity = useCallback(selected => {
-    setCity(selected.value);
-  }, []);
+  const [, setUbsNumber] = useState('UBS01');
+  const [, setMonth] = useState('Janeiro');
+  const [, setYear] = useState('2020');
+  const [, setCity] = useState('Plano Piloto');
 
   return (
     <Container>
@@ -63,48 +54,22 @@ function UBS() {
         <DataContainer>
           <div>
             <Selector
-              onChange={handdleChangeUbsNumber}
-              options={['UBS01', 'UBS02', 'UBS03', 'UBS04', 'UBS05']}
+              onChange={({ value }) => setUbsNumber(value)}
+              options={ubsPossibilities}
             />
-            {console.log(`${ubsNumber} ${month} ${year} ${city}`)}
             <Selector
-              onChange={handdleChangeMonth}
-              options={[
-                'Janeiro',
-                'Fevereiro',
-                'Março',
-                'Abril',
-                'Maio',
-                'Junho',
-                'Julho',
-                'Agosto',
-                'Setembro',
-                'Outubro',
-                'Novembro',
-                'Dezembro',
-              ]}
+              onChange={({ value }) => setMonth(value)}
+              options={monthPossibilities}
             />
-            <Selector onChange={handdleChangeYear} options={['2020', '2019']} />
+            <Selector
+              onChange={({ value }) => setYear(value)}
+              options={yearPossibilities}
+            />
           </div>
           <div>
             <Selector
-              onChange={handdleChangeCity}
-              options={[
-                'Plano Piloto',
-                'Lago Sul',
-                'Lago Norte',
-                'Águas Claras',
-                'Gama',
-                'Planaltina',
-                'Guará',
-                'Samabaia',
-                'Taguatinga',
-                'Ceilândia',
-                'Sobradinho',
-                'Braslândia',
-                'Riacho F.',
-                'Cruzeiro',
-              ]}
+              onChange={({ value }) => setCity(value)}
+              options={cityPossibilities}
             />
             <Pdf>
               <span> Importar </span>
@@ -117,86 +82,76 @@ function UBS() {
           </div>
         </DataContainer>
         <Content>
-          <MiniContainer>
-            <div>
-              <strong>Total de casos</strong>
-              <img src={User} alt="User" />
-            </div>
+          <DataInformer
+            title="Total de casos"
+            image={User}
+            alt="User"
+            quantity="42 mil"
+            percentage="1.3%"
+            direction="up"
+          />
 
-            <h1>42 mil</h1>
+          <DataInformer
+            title="Óbitos"
+            image={Pulse}
+            alt="Pulse"
+            quantity="5 mil"
+            percentage="0.9%"
+            direction="down"
+          />
 
-            <span>
-              <small style={{ color: '#f80303' }}>
-                <ImArrowUp2 size={11} color="#f80303" />
-                1.3 %
-              </small>
-              Desde o último mes
-            </span>
-          </MiniContainer>
+          <DataInformer
+            title="Curados"
+            image={Cure}
+            alt="Cure"
+            quantity="35 mil"
+            percentage="5.7%"
+            direction="down"
+          />
 
-          <MiniContainer>
-            <div>
-              <strong>Óbitos</strong>
-              <img src={Pulse} alt="Pulse" />
-            </div>
-
-            <h1>5 mil</h1>
-
-            <span>
-              <small style={{ color: '#04D361' }}>
-                <ImArrowDown2 size={11} color="#04D361" />
-                0.9 %
-              </small>
-              Desde o último mes
-            </span>
-          </MiniContainer>
-
-          <MiniContainer>
-            <div>
-              <strong>Curados</strong>
-              <img src={Cure} alt="Cure" />
-            </div>
-            <h1>35 mil</h1>
-            <span>
-              <small style={{ color: '#04D361' }}>
-                <ImArrowDown2 size={11} color="#04D361" />
-                5.7 %
-              </small>
-              Desde o último mes
-            </span>
-          </MiniContainer>
-
-          <MiniContainer>
-            <div>
-              <strong>Observações</strong>
-              <img src={Magnifier} alt="Magnifier" />
-            </div>
-            <h1>951</h1>
-            <span>
-              <small style={{ color: '#f80303' }}>
-                <ImArrowUp2 size={11} color="#f80303" />
-                8.3 %
-              </small>
-              Desde o último mes
-            </span>
-          </MiniContainer>
+          <DataInformer
+            title="Observações"
+            image={Magnifier}
+            alt="Magnifier"
+            quantity="951"
+            percentage="8.3%"
+            direction="up"
+          />
         </Content>
 
         <Content2>
           <Content3>
             <Cases>
               <span> Casos </span>
+              <CasesGraph
+                width="100%"
+                height="100%"
+                data={[
+                  25.0,
+                  32.4,
+                  22,
+                  39.4,
+                  34.2,
+                  22.0,
+                  23.2,
+                  21,
+                  20.0,
+                  10,
+                  8,
+                  5,
+                ]}
+              />
             </Cases>
 
             <Content4>
               <Deaths>
-                <span>
-                  Óbitos
-                  <div>
-                    <BsFillSquareFill color="#E786D7" /> Mulher
-                    <BsFillSquareFill color="#5E6BE3" /> Homem
-                  </div>
-                </span>
+                <span> Óbitos </span>
+                <DeathGraph
+                  min={0}
+                  max={40}
+                  dataMulheres={[1, 3, 6, 10, 15, 18, 25, 38]}
+                  dataHomens={[2, 4, 7, 10, 15, 18, 25, 38]}
+                />
               </Deaths>
 
               <Sexes>
